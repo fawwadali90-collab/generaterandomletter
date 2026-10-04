@@ -15,10 +15,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👶</text></svg>">
+<style>
+.name-stage{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;flex-direction:column;min-height:120px;padding:14px 0}
+.name-card{background:linear-gradient(135deg,#2b2140,#1e2230);border:1px solid #4a3f6e;border-radius:16px;padding:14px 30px;font-size:1.4rem;font-weight:800;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.4);letter-spacing:.01em}
+.name-card .tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#b892ff;display:block;margin-bottom:4px}
+.name-hero{font-size:clamp(2.6rem,8vw,4.4rem);font-weight:800;background:linear-gradient(135deg,#ffd93d,#ff9f43 45%,#ff6b81);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(255,159,67,.35))}
+@keyframes cardFlip{0%{transform:perspective(600px) rotateY(90deg) scale(.8);opacity:0}60%{transform:perspective(600px) rotateY(-12deg) scale(1.04);opacity:1}100%{transform:perspective(600px) rotateY(0) scale(1)}}
+.card-flip{animation:cardFlip .55s cubic-bezier(.2,1.3,.4,1) backwards}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What can I use a random name generator for?","acceptedAnswer":{"@type":"Answer","text":"Character names for stories and games, baby name inspiration, usernames, pen names, and placeholder names for design mockups."}},
-{"@type":"Question","name":"Can I generate only first names?","acceptedAnswer":{"@type":"Answer","text":"Yes — choose first names only, last names only, or full names."}}
+{"@type":"Question","name":"Can I generate only first names?","acceptedAnswer":{"@type":"Answer","text":"Yes — choose first names only, last names only, or full names."}},
+{"@type":"Question","name":"Are these real names?","acceptedAnswer":{"@type":"Answer","text":"Yes — the generator combines popular real first and last names, so results sound natural and believable rather than gibberish."}},
+{"@type":"Question","name":"Can this help me name my baby?","acceptedAnswer":{"@type":"Answer","text":"Many parents use it for inspiration — generate full names to discover first/last combinations you love, then check meanings and family fit."}},
+{"@type":"Question","name":"Can writers use this for character names?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Novelists, screenwriters, and D&D players use it to break naming blocks and find names that fit a character's vibe."}},
+{"@type":"Question","name":"Can I generate usernames with this?","acceptedAnswer":{"@type":"Answer","text":"Yes — generate full names and adapt them into handles, or use first-name-only mode for shorter gamertags and usernames."}},
+{"@type":"Question","name":"How many names can I generate at once?","acceptedAnswer":{"@type":"Answer","text":"Up to 20 per click. Generate again for a fresh batch — perfect when you're hunting for the one that clicks."}}
 ]}
 </script>
 </head>
@@ -40,7 +53,7 @@
     <h1>👶 Random Name Generator</h1>
     <p class="lede">Generate random first and last names — for characters, babies, games and usernames.</p>
     <div class="tool-stage">
-      <div class="result small" id="result" aria-live="polite" style="flex-direction:column;gap:10px;align-items:center"></div>
+      <div class="name-stage" id="result" aria-live="polite"></div>
       <div class="controls">
         <div class="field"><label for="count">Names</label>
           <select id="count"><option>1</option><option selected>5</option><option>10</option><option>20</option></select>
@@ -48,26 +61,34 @@
         <div class="field"><label for="ntype">Format</label>
           <select id="ntype"><option value="full">First + Last</option><option value="first">First only</option><option value="last">Last only</option></select>
         </div>
-        <button class="btn btn-brand btn-big" id="generate">Generate Names</button>
+        <button class="btn btn-brand btn-big" id="generate">👶 Generate Names</button>
+        <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
       </div>
       <div class="checks"><button class="copy-btn" id="copyBtn">Copy Names</button></div>
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>Stuck naming a character — or a baby? Our name generator combines popular first and last names into fresh, realistic full names. Generate one or twenty until something clicks.</p>
+      <h2>About this random name generator</h2>
+      <p>Stuck naming a character — or a baby? Our name generator combines popular real first and last names into fresh, natural-sounding full names. Because every combination uses genuine names rather than gibberish syllables, results feel believable — perfect for fiction, games, and mockups.</p>
+      <p>Choose <strong>first + last</strong> for full identities, <strong>first only</strong> for gamertags and character call-signs, or <strong>last only</strong> for surnames. Generate up to 20 at a time and keep clicking until one jumps out at you.</p>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Writers:</strong> character names for novels, scripts and RPGs.</li>
-        <li><strong>Parents:</strong> baby name inspiration and combinations.</li>
-        <li><strong>Gamers:</strong> usernames and avatar names.</li>
-        <li><strong>Designers:</strong> realistic placeholder names for mockups.</li>
+        <li><strong>Writers:</strong> character names for novels, screenplays, and D&amp;D campaigns.</li>
+        <li><strong>Parents:</strong> baby name inspiration — discover first/last combinations you love.</li>
+        <li><strong>Gamers:</strong> usernames, gamertags, and avatar names.</li>
+        <li><strong>Designers:</strong> realistic placeholder names for mockups and prototypes.</li>
+        <li><strong>Privacy:</strong> believable placeholder names for examples and demos.</li>
       </ul>
     </div>
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
       <details><summary>What can I use a random name generator for?</summary><p>Character names, baby name inspiration, usernames, pen names, and placeholder names for designs.</p></details>
       <details><summary>Can I generate only first names?</summary><p>Yes — choose first names only, last names only, or full names.</p></details>
+      <details><summary>Are these real names?</summary><p>Yes — the generator combines popular real first and last names, so results sound natural and believable rather than gibberish.</p></details>
+      <details><summary>Can this help me name my baby?</summary><p>Many parents use it for inspiration — generate full names to discover first/last combinations you love, then check meanings and family fit.</p></details>
+      <details><summary>Can writers use this for character names?</summary><p>Absolutely. Novelists, screenwriters, and D&D players use it to break naming blocks and find names that fit a character's vibe.</p></details>
+      <details><summary>Can I generate usernames with this?</summary><p>Yes — generate full names and adapt them into handles, or use first-name-only mode for shorter gamertags and usernames.</p></details>
+      <details><summary>How many names can I generate at once?</summary><p>Up to 20 per click. Generate again for a fresh batch — perfect when you're hunting for the one that clicks.</p></details>
     </div>
     <div class="prose">
       <h2>More creative tools</h2>
@@ -102,19 +123,35 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
+  "use strict";
   var FIRST = "Ava Liam Mia Noah Emma Oliver Sophia Elijah Isabella James Amelia Benjamin Harper Evelyn Lucas Abigail Henry Ella Alexander Scarlett Jack Grace Owen Chloe Daniel Lily Henry Samuel Victoria David Penelope Joseph Nora Andrew Hazel Christopher Aurora Brian Stella Edward Naomi Eric Luna Adam Sadie Thomas Ruby Charles Alice Jose Hazel".split(" ");
   var LAST = "Smith Johnson Williams Brown Jones Garcia Miller Davis Rodriguez Martinez Hernandez Lopez Gonzalez Wilson Anderson Taylor Thomas Moore Jackson Martin Lee Walker Hall Allen Young King Wright Scott Green Baker Adams Nelson Hill Rivera Campbell Mitchell Roberts Carter".split(" ");
-  var box = document.getElementById("result");
+  var box = document.getElementById("result"), busy = false;
+  function makeName(){
+    var t = document.getElementById("ntype").value;
+    return t === "first" ? grlPick(FIRST) : t === "last" ? grlPick(LAST) : grlPick(FIRST) + " " + grlPick(LAST);
+  }
   function generate(){
-    var n = parseInt(document.getElementById("count").value, 10),
-        t = document.getElementById("ntype").value, out = [];
-    for(var i = 0; i < n; i++){
-      var name = t === "first" ? grlPick(FIRST) : t === "last" ? grlPick(LAST) : grlPick(FIRST) + " " + grlPick(LAST);
-      out.push(name);
+    if(busy) return; busy = true;
+    var n = parseInt(document.getElementById("count").value, 10), out = [];
+    for(var i = 0; i < n; i++) out.push(makeName());
+    box.innerHTML = "";
+    grlSfx.whoosh();
+    if(out.length === 1){
+      box.innerHTML = '<span class="name-hero flash-pop">' + out[0] + "</span>";
+      setTimeout(function(){ grlSfx.chime(); grlConfetti(50); busy = false; }, 350);
+      return;
     }
-    box.innerHTML = out.map(function(x){
-      return '<span class="pill active" style="font-size:1.15rem">' + x + "</span>";
-    }).join("");
+    out.forEach(function(name, i){
+      setTimeout(function(){
+        var d = document.createElement("div");
+        d.className = "name-card card-flip";
+        d.innerHTML = '<span class="tag">Name ' + (i + 1) + "</span>" + name;
+        box.appendChild(d);
+        grlSfx.pop();
+        if(i === out.length - 1){ grlSfx.chime(); busy = false; }
+      }, 120 + i * 160);
+    });
   }
   document.getElementById("generate").addEventListener("click", generate);
   document.getElementById("copyBtn").addEventListener("click", function(){

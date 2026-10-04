@@ -15,10 +15,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+<style>
+.palette-stage{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;min-height:190px;padding:14px 0;transition:background .5s}
+.swatch-wrap{text-align:center;cursor:pointer}
+.swatch-wrap .color-swatch{width:110px;height:110px;border-radius:22px;box-shadow:0 12px 28px rgba(0,0,0,.45),inset 0 3px 8px rgba(255,255,255,.35);transition:transform .2s}
+.swatch-wrap:hover .color-swatch{transform:scale(1.07)}
+@keyframes swatchIn{0%{transform:scale(.4) rotate(-8deg);opacity:0}60%{transform:scale(1.1) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+.swatch-in{animation:swatchIn .5s cubic-bezier(.2,1.5,.4,1) backwards}
+.hero-color{border-radius:24px;padding:48px 60px;text-align:center;min-width:min(480px,90%);box-shadow:0 18px 50px rgba(0,0,0,.5);transition:background .45s}
+.hero-hex{font-size:clamp(2.4rem,7vw,3.8rem);font-weight:800;letter-spacing:.02em}
+.hero-sub{font-size:.95rem;opacity:.85;margin-top:8px;font-weight:600}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How do I copy a generated color?","acceptedAnswer":{"@type":"Answer","text":"Click any color swatch or the Copy button to copy the HEX code. RGB and HSL values are shown below each color."}},
-{"@type":"Question","name":"What is a random color generator used for?","acceptedAnswer":{"@type":"Answer","text":"Design inspiration, branding palettes, website themes, art projects, and breaking out of color ruts."}}
+{"@type":"Question","name":"What is a random color generator used for?","acceptedAnswer":{"@type":"Answer","text":"Design inspiration, branding palettes, website themes, art projects, and breaking out of color ruts."}},
+{"@type":"Question","name":"What color formats are shown?","acceptedAnswer":{"@type":"Answer","text":"Every color displays HEX, RGB, and HSL values — ready to paste into CSS, Figma, Photoshop, or any design tool."}},
+{"@type":"Question","name":"How do designers use random colors?","acceptedAnswer":{"@type":"Answer","text":"As creative constraints: generate a palette and force yourself to design with only those colors. Random limits break creative blocks and spark unexpected combinations."}},
+{"@type":"Question","name":"Can I generate a whole color palette at once?","acceptedAnswer":{"@type":"Answer","text":"Yes — generate up to 8 colors per click and copy the full palette as HEX codes in one go."}},
+{"@type":"Question","name":"How do I check if a color combination looks good?","acceptedAnswer":{"@type":"Answer","text":"Trust your eye first, then check contrast ratios for text readability. Tweaking a random find — shifting hue or saturation — often turns an accident into a palette."}},
+{"@type":"Question","name":"Is the color selection truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each RGB channel is drawn with cryptographic-quality randomness, so all 16.7 million colors have an equal chance."}}
 ]}
 </script>
 </head>
@@ -40,31 +56,47 @@
     <h1>🎨 Random Color Generator</h1>
     <p class="lede">Generate random colors with HEX, RGB and HSL codes. Click any swatch to copy.</p>
     <div class="tool-stage">
-      <div class="result" id="palette" aria-live="polite" style="gap:18px"></div>
+      <div class="palette-stage" id="palette" aria-live="polite"></div>
       <div class="controls">
         <div class="field"><label for="ccount">Colors</label>
           <select id="ccount"><option>1</option><option>3</option><option selected>5</option><option>8</option></select>
         </div>
-        <button class="btn btn-brand btn-big" id="generate">Generate Colors</button>
+        <button class="btn btn-brand btn-big" id="generate">🎨 Generate Colors</button>
+        <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
       </div>
       <div class="checks"><button class="copy-btn" id="copyBtn">Copy Palette (HEX)</button></div>
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>Stuck on a palette? Generate random colors instantly — each swatch shows its HEX, RGB and HSL values, and clicking a swatch copies the HEX code straight to your clipboard. Great for kicking off a design when the blank canvas stares back.</p>
+      <h2>About this random color generator</h2>
+      <p>Stuck on a palette? Generate random colors instantly — each swatch shows its <strong>HEX, RGB and HSL</strong> values, and clicking a swatch copies the HEX code straight to your clipboard. Generate a single hero color or a full palette of up to 8.</p>
+      <p>Randomness is a legitimate design technique: <strong>constraints unlock creativity</strong>. Generate a palette and force yourself to design using only those colors — the unexpected combinations break the blank-canvas paralysis that hits every designer. Got something ugly? Even better — rescuing a "bad" random color into a working design is one of the fastest ways to grow your eye.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Choose how many colors (1–8).</li>
+        <li>Hit <strong>Generate Colors</strong>.</li>
+        <li><strong>Click any swatch</strong> to copy its HEX, or Copy Palette to grab them all.</li>
+        <li>Paste straight into CSS, Figma, Photoshop, or Canva.</li>
+      </ol>
       <h2>Popular uses</h2>
       <ul>
         <li><strong>Web design:</strong> theme inspiration and accent color ideas.</li>
-        <li><strong>Branding:</strong> explore unexpected palette combinations.</li>
-        <li><strong>Art:</strong> limited-palette challenges for illustrators.</li>
+        <li><strong>Branding:</strong> explore unexpected palette combinations for logos and identities.</li>
+        <li><strong>Art challenges:</strong> limited-palette exercises for illustrators.</li>
         <li><strong>Development:</strong> placeholder colors for mockups and prototypes.</li>
+        <li><strong>Decor &amp; crafts:</strong> color schemes for rooms, weddings, and DIY projects.</li>
       </ul>
+      <p>Want exercises built around random colors? Read our guide on <a href="/blog/random-color-palette-ideas">how designers use random colors to break creative blocks</a>.</p>
     </div>
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
       <details><summary>How do I copy a generated color?</summary><p>Click any color swatch to copy its HEX code instantly, or use Copy Palette to grab all of them.</p></details>
-      <details><summary>What formats are shown?</summary><p>Every color displays HEX, RGB and HSL values — ready for CSS, Figma or any design tool.</p></details>
+      <details><summary>What is a random color generator used for?</summary><p>Design inspiration, branding palettes, website themes, art projects, and breaking out of color ruts.</p></details>
+      <details><summary>What color formats are shown?</summary><p>Every color displays HEX, RGB and HSL values — ready for CSS, Figma, Photoshop, or any design tool.</p></details>
+      <details><summary>How do designers use random colors?</summary><p>As creative constraints: generate a palette and force yourself to design with only those colors. Random limits break creative blocks and spark unexpected combinations.</p></details>
+      <details><summary>Can I generate a whole color palette at once?</summary><p>Yes — generate up to 8 colors per click and copy the full palette as HEX codes in one go.</p></details>
+      <details><summary>How do I check if a color combination looks good?</summary><p>Trust your eye first, then check contrast ratios for text readability. Tweaking a random find — shifting hue or saturation — often turns an accident into a palette.</p></details>
+      <details><summary>Is the color selection truly random?</summary><p>Yes. Each RGB channel is drawn with cryptographic-quality randomness, so all 16.7 million colors have an equal chance.</p></details>
     </div>
     <div class="prose">
       <h2>More creative tools</h2>
@@ -99,25 +131,47 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
-  var box = document.getElementById("palette"), hexes = [];
+  "use strict";
+  var box = document.getElementById("palette"), hexes = [], busy = false;
   function rnd(n){ var a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] % n; }
+  function luminance(r, g, b){
+    var f = function(v){ v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); };
+    return .2126 * f(r) + .7152 * f(g) + .0722 * f(b);
+  }
+  function makeColor(){
+    var r = rnd(256), g = rnd(256), b = rnd(256),
+        hex = "#" + [r, g, b].map(function(v){ return ("0" + v.toString(16)).slice(-2); }).join("").toUpperCase();
+    return { r: r, g: g, b: b, hex: hex, hsl: rgbToHsl(r, g, b), dark: luminance(r, g, b) > .45 };
+  }
   function generate(){
-    var n = parseInt(document.getElementById("ccount").value, 10);
-    hexes = [];
-    var html = "";
-    for(var i = 0; i < n; i++){
-      var r = rnd(256), g = rnd(256), b = rnd(256),
-          hex = "#" + [r, g, b].map(function(v){ return ("0" + v.toString(16)).slice(-2); }).join("").toUpperCase();
-      hexes.push(hex);
-      var hsl = rgbToHsl(r, g, b);
-      html += '<div style="text-align:center;cursor:pointer" data-hex="' + hex + '" title="Click to copy">' +
-        '<div class="color-swatch" style="background:' + hex + '"></div>' +
-        '<div style="font-weight:800">' + hex + '</div>' +
-        '<div style="font-size:.78rem;color:#a7abc0">rgb(' + r + "," + g + "," + b + ')<br>hsl(' + hsl + ")</div></div>";
+    if(busy) return; busy = true;
+    var n = parseInt(document.getElementById("ccount").value, 10), cols = [];
+    for(var i = 0; i < n; i++) cols.push(makeColor());
+    hexes = cols.map(function(c){ return c.hex; });
+    box.innerHTML = "";
+    grlSfx.whoosh();
+    if(cols.length === 1){
+      var c = cols[0], fg = c.dark ? "#1a1d26" : "#ffffff";
+      box.innerHTML = '<div class="hero-color swatch-in" id="heroColor" style="background:' + c.hex + ";color:" + fg + '">' +
+        '<div class="hero-hex">' + c.hex + "</div>" +
+        '<div class="hero-sub">rgb(' + c.r + "," + c.g + "," + c.b + ") · hsl(" + c.hsl + ")<br>tap the color to copy</div></div>";
+      setTimeout(function(){ grlSfx.chime(); busy = false; }, 300);
+      document.getElementById("heroColor").addEventListener("click", function(){ grlCopy(c.hex); });
+      return;
     }
-    box.innerHTML = html;
-    box.querySelectorAll("[data-hex]").forEach(function(el){
-      el.addEventListener("click", function(){ grlCopy(el.getAttribute("data-hex")); });
+    cols.forEach(function(c, i){
+      setTimeout(function(){
+        var w = document.createElement("div");
+        w.className = "swatch-wrap swatch-in";
+        w.title = "Click to copy";
+        w.innerHTML = '<div class="color-swatch" style="background:' + c.hex + '"></div>' +
+          '<div style="font-weight:800;margin-top:8px">' + c.hex + "</div>" +
+          '<div style="font-size:.78rem;color:#a7abc0">rgb(' + c.r + "," + c.g + "," + c.b + ")<br>hsl(" + c.hsl + ")</div>";
+        w.addEventListener("click", function(){ grlCopy(c.hex); });
+        box.appendChild(w);
+        grlSfx.pop();
+        if(i === cols.length - 1){ grlSfx.chime(); busy = false; }
+      }, 100 + i * 110);
     });
   }
   function rgbToHsl(r, g, b){

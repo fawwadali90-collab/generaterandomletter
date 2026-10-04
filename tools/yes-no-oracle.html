@@ -15,10 +15,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+<style>
+.orb{width:150px;height:150px;border-radius:50%;margin:6px auto 4px;position:relative;
+  background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.75),rgba(255,255,255,.06) 42%,transparent 60%),
+  radial-gradient(circle at 50% 55%,#b892ff 0%,#6c4cf1 45%,#2a1a5e 100%);
+  box-shadow:0 0 34px rgba(139,92,246,.65),0 0 90px rgba(139,92,246,.3),inset 0 -14px 30px rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center}
+.orb::after{content:"";position:absolute;inset:14px;border-radius:50%;
+  background:radial-gradient(circle at 50% 40%,rgba(20,10,50,.55),rgba(20,10,50,.15) 70%);
+  filter:blur(1px)}
+@keyframes orbShake{0%,100%{transform:translate(0,0) rotate(0)}20%{transform:translate(-8px,4px) rotate(-6deg)}40%{transform:translate(8px,-4px) rotate(6deg)}60%{transform:translate(-6px,-3px) rotate(-4deg)}80%{transform:translate(6px,3px) rotate(4deg)}}
+.orb-shake{animation:orbShake .7s ease-in-out}
+@keyframes mistSwirl{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.orb .mist{position:absolute;inset:8px;border-radius:50%;z-index:1;
+  background:conic-gradient(from 0deg,transparent 0 40%,rgba(216,180,255,.35) 50%,transparent 60% 100%);
+  animation:mistSwirl 7s linear infinite}
+.answer-banner{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;color:#e9d5ff;text-shadow:0 0 18px rgba(168,85,247,.8);min-height:2.2em;max-width:640px;margin:10px auto 0}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How does the yes or no oracle work?","acceptedAnswer":{"@type":"Answer","text":"Type your question, press Ask the Oracle, and receive a random mystical yes-or-no style answer. It's for fun — not life advice."}},
-{"@type":"Question","name":"Is it just yes or no?","acceptedAnswer":{"@type":"Answer","text":"No — like a magic 8-ball, answers range from 'Absolutely yes' to 'Ask again later' to keep things entertaining."}}
+{"@type":"Question","name":"Is it just yes or no?","acceptedAnswer":{"@type":"Answer","text":"No — like a magic 8-ball, answers range from 'Absolutely yes' to 'Ask again later' to keep things entertaining."}},
+{"@type":"Question","name":"Is this like a magic 8-ball?","acceptedAnswer":{"@type":"Answer","text":"Exactly — it's a digital magic 8-ball. Ask a yes-or-no question, shake the orb, and get one of 16 classic-style mystical answers."}},
+{"@type":"Question","name":"Can a yes/no generator help me make decisions?","acceptedAnswer":{"@type":"Answer","text":"Surprisingly, yes — for low-stakes choices. Notice your gut reaction to the answer: relief means you wanted yes, disappointment means you wanted no. Then decide for real."}},
+{"@type":"Question","name":"What questions can I ask the oracle?","acceptedAnswer":{"@type":"Answer","text":"Anything with a yes-or-no answer: 'Should I order pizza?', 'Is it going to rain?', 'Should we watch this movie?' Keep it light — it's entertainment."}},
+{"@type":"Question","name":"Should I trust the oracle for important decisions?","acceptedAnswer":{"@type":"Answer","text":"No. The oracle is pure entertainment with random answers. For careers, money, or health, do real research and talk to real people."}},
+{"@type":"Question","name":"What's the difference between the oracle and a coin flip?","acceptedAnswer":{"@type":"Answer","text":"A coin flip gives a strict 50/50 yes or no. The oracle adds magic 8-ball flavor — 'ask again later', 'signs point to yes' — which makes indecision more fun."}}
 ]}
 </script>
 </head>
@@ -40,19 +62,21 @@
     <h1>🔮 Yes / No Oracle</h1>
     <p class="lede">Ask a question, consult the oracle, and receive your mystical answer.</p>
     <div class="tool-stage">
-      <div style="font-size:4rem;margin-bottom:8px">🔮</div>
-      <div class="result small" id="answer" aria-live="polite" style="min-height:2.2em;max-width:640px;margin:0 auto">Think of a yes-or-no question…</div>
+      <div class="orb" id="orb" role="img" aria-label="Crystal ball oracle"><span class="mist"></span></div>
+      <div class="answer-banner" id="answer" aria-live="polite">Think of a yes-or-no question…</div>
       <div class="controls">
         <div class="field" style="flex:1;min-width:220px;max-width:420px"><label for="q">Your question (optional)</label>
           <input type="text" id="q" placeholder="Should I order pizza tonight?" maxlength="120">
         </div>
-        <button class="btn btn-brand btn-big" id="ask">Ask the Oracle</button>
+        <button class="btn btn-brand btn-big" id="ask">🔮 Ask the Oracle</button>
+        <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
       </div>
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>The Yes/No Oracle is a digital magic 8-ball. Ask anything with a yes-or-no answer and receive a mystical response — from enthusiastic approval to cryptic deflection. Perfect for breaking decision deadlock with a laugh.</p>
+      <h2>About this yes or no oracle</h2>
+      <p>The Yes/No Oracle is a digital <strong>magic 8-ball</strong>. Ask anything with a yes-or-no answer, shake the crystal ball, and receive a mystical response — from enthusiastic approval ("Absolutely yes ✨") to cryptic deflection ("Ask again later…"). It's the fun way to break decision deadlock.</p>
+      <p>Here's a secret psychologists love: randomness can genuinely help with <strong>low-stakes decisions</strong>. Ask the oracle, then notice your gut reaction to its answer — relief means you secretly wanted "yes," disappointment means you wanted "no." Now you know what you really wanted. For bigger choices, pair it with our <a href="/tools/coin-flip">coin flip</a> for a strict 50/50, or read our guide to <a href="/blog/yes-no-decision-ideas">20 fun ways to decide when you're stuck</a>.</p>
       <h2>A note on wisdom</h2>
       <p>The oracle is entertainment, not advice. For pizza toppings, it's infallible. For career moves, maybe sleep on it too.</p>
     </div>
@@ -60,6 +84,11 @@
       <h2>Frequently asked questions</h2>
       <details><summary>How does the yes or no oracle work?</summary><p>Type your question, press Ask the Oracle, and receive a random mystical yes-or-no style answer.</p></details>
       <details><summary>Is it just yes or no?</summary><p>No — like a magic 8-ball, answers range from "Absolutely yes" to "Ask again later."</p></details>
+      <details><summary>Is this like a magic 8-ball?</summary><p>Exactly — it's a digital magic 8-ball. Ask a yes-or-no question, shake the orb, and get one of 16 classic-style mystical answers.</p></details>
+      <details><summary>Can a yes/no generator help me make decisions?</summary><p>Surprisingly, yes — for low-stakes choices. Notice your gut reaction to the answer: relief means you wanted yes, disappointment means you wanted no. Then decide for real.</p></details>
+      <details><summary>What questions can I ask the oracle?</summary><p>Anything with a yes-or-no answer: "Should I order pizza?", "Is it going to rain?", "Should we watch this movie?" Keep it light — it's entertainment.</p></details>
+      <details><summary>Should I trust the oracle for important decisions?</summary><p>No. The oracle is pure entertainment with random answers. For careers, money, or health, do real research and talk to real people.</p></details>
+      <details><summary>What's the difference between the oracle and a coin flip?</summary><p>A coin flip gives a strict 50/50 yes or no. The oracle adds magic 8-ball flavor — "ask again later", "signs point to yes" — which makes indecision more fun.</p></details>
     </div>
     <div class="prose">
       <h2>More decision tools</h2>
@@ -94,24 +123,29 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
+  "use strict";
   var ANSWERS = [
     "Absolutely yes ✨","Without a doubt","Signs point to yes","Yes — go for it",
     "Most likely","Ask again later…","Cannot predict now","Don't count on it",
     "My reply is no","Very doubtful","Outlook not so good","Better not tell you now",
     "The stars say yes 🌟","Hmm… try again","Yes, but be patient","No — trust me on this"
   ];
-  var box = document.getElementById("answer"), busy = false;
+  var box = document.getElementById("answer"), orb = document.getElementById("orb"), busy = false;
   function ask(){
     if(busy) return; busy = true;
+    orb.classList.remove("orb-shake"); void orb.offsetWidth; orb.classList.add("orb-shake");
     box.textContent = "Consulting the spirits…";
+    grlSfx.whoosh();
     setTimeout(function(){
       var a = grlPick(ANSWERS);
-      box.innerHTML = "🔮 <strong>" + a + "</strong>";
+      box.innerHTML = '<span class="flash-pop" style="display:inline-block">' + a + "</span>";
+      grlSfx.chime();
       if(/yes|doubt|go for it|likely|stars/i.test(a)) grlConfetti(60);
       busy = false;
-    }, 900);
+    }, 850);
   }
   document.getElementById("ask").addEventListener("click", ask);
+  orb.addEventListener("click", ask);
   document.getElementById("q").addEventListener("keydown", function(e){ if(e.key === "Enter") ask(); });
 })();
 </script>
