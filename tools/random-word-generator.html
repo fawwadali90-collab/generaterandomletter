@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Word Generator — Generate Random Words Free</title>
+<meta name="description" content="Free random word generator. Generate random English words instantly for Pictionary, writing prompts, vocabulary practice and brainstorming.">
+<link rel="canonical" href="https://generaterandomletter.com/tools/random-word-generator.html">
+<meta property="og:title" content="Random Word Generator — Generate Random Words Free">
+<meta property="og:description" content="Free random word generator. Generate random English words instantly for Pictionary, writing prompts, vocabulary practice and brainstorming.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://generaterandomletter.com/tools/random-word-generator.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a random word generator used for?","acceptedAnswer":{"@type":"Answer","text":"Games like Pictionary and charades, creative writing prompts, vocabulary and spelling practice, brainstorming, and baby or character name inspiration."}},
+{"@type":"Question","name":"Can I filter words by type?","acceptedAnswer":{"@type":"Answer","text":"Yes — choose nouns, verbs, adjectives or all words, and optionally filter by starting letter."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="mark">R</span> GenerateRandomLetter</a>
+    <nav class="nav">
+      <a href="/#tools">All Tools</a>
+      <a href="/tools/picker-wheel.html">Picker Wheel</a>
+      <a href="/tools/random-word-generator.html">Word Generator</a>
+      <a class="cta" href="/tools/random-letter-generator.html">Random Letter</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+  <nav class="crumbs"><a href="/">Home</a> › Random Word Generator</nav>
+  <div class="tool-hero">
+    <h1>📝 Random Word Generator</h1>
+    <p class="lede">Generate random English words for games, writing and learning. Filter by word type or starting letter.</p>
+    <div class="tool-stage">
+      <div class="result small" id="result" aria-live="polite" style="gap:10px"></div>
+      <div class="controls">
+        <div class="field"><label for="count">Words</label>
+          <select id="count"><option>1</option><option>3</option><option selected>5</option><option>10</option><option>20</option></select>
+        </div>
+        <div class="field"><label for="wtype">Word type</label>
+          <select id="wtype"><option value="all">All words</option><option value="noun">Nouns</option><option value="verb">Verbs</option><option value="adj">Adjectives</option></select>
+        </div>
+        <div class="field"><label for="starts">Starts with</label>
+          <select id="starts"><option value="">Any letter</option></select>
+        </div>
+        <button class="btn btn-brand btn-big" id="generate">Generate Words</button>
+      </div>
+      <div class="checks"><button class="copy-btn" id="copyBtn">Copy Words</button></div>
+      <div class="history" id="history"></div>
+    </div>
+    <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
+    <div class="prose">
+      <h2>About this tool</h2>
+      <p>Our random word generator picks from a curated list of common English words — nouns, verbs and adjectives — so every result is recognizable and usable. It's the fair way to draw words for games and a great spark for creative work.</p>
+      <h2>Popular uses</h2>
+      <ul>
+        <li><strong>Pictionary &amp; charades:</strong> draw a word nobody chose — no cheating possible.</li>
+        <li><strong>Writing prompts:</strong> generate 5 words and weave them all into a story.</li>
+        <li><strong>Vocabulary practice:</strong> quiz yourself on meanings and spellings.</li>
+        <li><strong>Brainstorming:</strong> random words break mental ruts and spark ideas.</li>
+      </ul>
+    </div>
+    <div class="prose faq">
+      <h2>Frequently asked questions</h2>
+      <details><summary>What is a random word generator used for?</summary><p>Games like Pictionary and charades, creative writing prompts, vocabulary and spelling practice, brainstorming, and name inspiration.</p></details>
+      <details><summary>Can I filter words by type?</summary><p>Yes — choose nouns, verbs, adjectives or all words, and optionally filter by starting letter.</p></details>
+      <details><summary>How many words can I generate?</summary><p>Up to 20 at a time. Generate again for a fresh set.</p></details>
+    </div>
+    <div class="prose">
+      <h2>More word &amp; letter tools</h2>
+      <div class="tool-grid">
+        <a class="tool-card" href="/tools/random-letter-generator.html"><span class="icon">🔤</span><h3>Random Letter Generator</h3><p>Letters A–Z with filters.</p></a>
+        <a class="tool-card" href="/tools/random-name-generator.html"><span class="icon">👶</span><h3>Random Name Generator</h3><p>First and last names.</p></a>
+        <a class="tool-card" href="/tools/yes-no-oracle.html"><span class="icon">🔮</span><h3>Yes / No Oracle</h3><p>Ask and receive.</p></a>
+        <a class="tool-card" href="/"><span class="icon">🏠</span><h3>All Tools</h3><p>Browse all 12 generators.</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span class="mark">R</span> GenerateRandomLetter</div>
+      <p style="font-size:.9rem;max-width:340px">Free random generators and decision pickers for games, classrooms, giveaways and everyday choices.</p></div>
+      <div><h4>Popular tools</h4>
+        <a href="/tools/random-letter-generator.html">Random Letter Generator</a>
+        <a href="/tools/picker-wheel.html">Picker Wheel</a>
+        <a href="/tools/random-word-generator.html">Random Word Generator</a>
+        <a href="/tools/team-generator.html">Team Generator</a></div>
+      <div><h4>More tools</h4>
+        <a href="/tools/random-number-generator.html">Random Number Generator</a>
+        <a href="/tools/coin-flip.html">Coin Flip</a>
+        <a href="/tools/dice-roller.html">Dice Roller</a>
+        <a href="/tools/password-generator.html">Password Generator</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year>2026</span> GenerateRandomLetter.com — All rights reserved.</span><span>Made for fair picks everywhere.</span></div>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var WORDS = {
+    noun: "apple bridge candle dance eagle forest garden hammer island jungle kite lamp mountain nest ocean piano queen river star table umbrella violin window anchor balloon cloud drum engine flame grape hill ink jewel knife leaf moon needle orange pearl quilt rock ship tiger torch valley whale yarn zebra".split(" "),
+    verb: "run jump sing dance write read build climb swim fly think laugh cry play work teach learn cook clean draw paint sing shine grow bloom chase catch throw kick push pull lift carry".split(" "),
+    adj: "happy bright quick calm brave clever gentle kind lucky funny silly swift smooth soft loud quiet sharp sweet fresh warm cool bold wild calm proud eager".split(" ")
+  };
+  var starts = document.getElementById("starts");
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(function(ch){
+    var o = document.createElement("option"); o.value = ch.toLowerCase(); o.textContent = ch; starts.appendChild(o);
+  });
+  var result = document.getElementById("result"), hist = document.getElementById("history"), history = [];
+  function generate(){
+    var t = document.getElementById("wtype").value,
+        s = document.getElementById("starts").value,
+        n = parseInt(document.getElementById("count").value, 10),
+        pool = t === "all" ? WORDS.noun.concat(WORDS.verb, WORDS.adj) : WORDS[t];
+    if(s) pool = pool.filter(function(w){ return w.charAt(0) === s; });
+    if(!pool.length) pool = WORDS.noun;
+    var out = [];
+    for(var i = 0; i < n; i++) out.push(grlPick(pool));
+    result.innerHTML = out.map(function(w){ return '<span class="pill active">' + w + "</span>"; }).join("");
+    history.unshift(out.join(", "));
+    if(history.length > 6) history.pop();
+    hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+  }
+  document.getElementById("generate").addEventListener("click", generate);
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    grlCopy(result.textContent.trim().replace(/\s+/g, " "), this);
+  });
+  generate();
+})();
+</script>
+</body>
+</html>

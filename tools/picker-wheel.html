@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Picker Wheel — Spin the Wheel to Pick a Random Winner Free</title>
+<meta name="description" content="Free picker wheel spinner. Enter names or choices, spin the animated wheel and pick a random winner. Perfect for giveaways, classrooms and raffles.">
+<link rel="canonical" href="https://generaterandomletter.com/tools/picker-wheel.html">
+<meta property="og:title" content="Picker Wheel — Spin the Wheel to Pick a Random Winner Free">
+<meta property="og:description" content="Free picker wheel spinner. Enter names or choices, spin the animated wheel and pick a random winner. Perfect for giveaways, classrooms and raffles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://generaterandomletter.com/tools/picker-wheel.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎡</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I use the picker wheel?","acceptedAnswer":{"@type":"Answer","text":"Type or paste your entries (one per line) into the list box, then press SPIN. The wheel animates and lands on a random winner."}},
+{"@type":"Question","name":"Is the picker wheel really random?","acceptedAnswer":{"@type":"Answer","text":"Yes. The final stopping position is chosen with cryptographic-quality randomness, so every entry has an equal chance."}},
+{"@type":"Question","name":"Can I use it for giveaways and raffles?","acceptedAnswer":{"@type":"Answer","text":"Absolutely — it's ideal for giveaways, classroom picks, raffles and team draws. For transparency, spin it live on screen."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="mark">R</span> GenerateRandomLetter</a>
+    <nav class="nav">
+      <a href="/#tools">All Tools</a>
+      <a href="/tools/picker-wheel.html">Picker Wheel</a>
+      <a href="/tools/random-word-generator.html">Word Generator</a>
+      <a class="cta" href="/tools/random-letter-generator.html">Random Letter</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs"><a href="/">Home</a> › Picker Wheel</nav>
+  <div class="tool-hero">
+    <h1>🎡 Picker Wheel — Spin to Decide</h1>
+    <p class="lede">Enter your options, spin the wheel, and let fate pick a winner. Free, fair and fun.</p>
+    <div class="tool-stage">
+      <div class="wheel-wrap">
+        <div style="position:relative">
+          <canvas id="wheel" width="380" height="380" role="img" aria-label="Spinning picker wheel"></canvas>
+          <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);font-size:2rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))">🔻</div>
+        </div>
+        <div class="wheel-inputs">
+          <label for="entries" style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#a7abc0">Entries (one per line)</label>
+          <textarea id="entries" spellcheck="false">Alice
+Bob
+Charlie
+Diana
+Ethan
+Fiona</textarea>
+          <div class="pill-list" style="margin-top:10px">
+            <button class="pill" data-preset="names">Names</button>
+            <button class="pill" data-preset="yesno">Yes / No</button>
+            <button class="pill" data-preset="nums">1 – 10</button>
+            <button class="pill" data-preset="colors">Colors</button>
+          </div>
+          <button class="btn btn-brand" id="updateBtn">Update Wheel</button>
+          <button class="btn btn-ghost" id="spinBtn" style="font-size:1.2rem">SPIN 🎯</button>
+        </div>
+      </div>
+      <div class="result small" id="result" aria-live="polite" style="margin-top:18px;min-height:2em">Press SPIN to pick a winner…</div>
+    </div>
+
+    <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
+
+    <div class="prose">
+      <h2>About the picker wheel</h2>
+      <p>Our picker wheel is a virtual spinning wheel that selects a random entry from your list. Add names, choices, prizes or anything else — the wheel divides into colorful segments and spins with a realistic slowdown before landing on the winner with a confetti celebration.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Type or paste entries into the list box, one per line.</li>
+        <li>Click <strong>Update Wheel</strong> (or it updates as you type).</li>
+        <li>Press <strong>SPIN</strong> and watch it land on your winner.</li>
+        <li>Remove the winner and spin again for multi-round draws.</li>
+      </ol>
+      <h2>Popular uses</h2>
+      <ul>
+        <li><strong>Giveaways &amp; raffles:</strong> draw fair winners live on stream.</li>
+        <li><strong>Classrooms:</strong> pick students for questions or teams.</li>
+        <li><strong>Decisions:</strong> "what should we eat?" — let the wheel decide.</li>
+        <li><strong>Games:</strong> Truth-or-dare prompts, prize wheels, random challenges.</li>
+      </ul>
+    </div>
+
+    <div class="prose faq">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How do I use the picker wheel?</summary><p>Type or paste your entries (one per line) into the list box, then press SPIN. The wheel animates and lands on a random winner.</p></details>
+      <details><summary>Is the picker wheel really random?</summary><p>Yes. The final stopping position is chosen with cryptographic-quality randomness, so every entry has an exactly equal chance of winning.</p></details>
+      <details><summary>Can I use it for giveaways and raffles?</summary><p>Absolutely — it's ideal for giveaways, classroom picks and raffles. For transparency, share your screen and spin it live.</p></details>
+      <details><summary>How many entries can I add?</summary><p>Up to 50 entries work smoothly. For longer lists, try our <a href="/tools/random-list-picker.html">random list picker</a> instead.</p></details>
+    </div>
+
+    <div class="prose">
+      <h2>More decision tools</h2>
+      <div class="tool-grid">
+        <a class="tool-card" href="/tools/random-list-picker.html"><span class="icon">🎯</span><h3>Random List Picker</h3><p>Pick winners from long lists.</p></a>
+        <a class="tool-card" href="/tools/team-generator.html"><span class="icon">👥</span><h3>Team Generator</h3><p>Split names into random teams.</p></a>
+        <a class="tool-card" href="/tools/coin-flip.html"><span class="icon">🪙</span><h3>Coin Flip</h3><p>Settle it with a flip.</p></a>
+        <a class="tool-card" href="/"><span class="icon">🏠</span><h3>All Tools</h3><p>Browse all 12 free generators.</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><span class="mark">R</span> GenerateRandomLetter</div>
+        <p style="font-size:.9rem;max-width:340px">Free random generators and decision pickers for games, classrooms, giveaways and everyday choices.</p>
+      </div>
+      <div>
+        <h4>Popular tools</h4>
+        <a href="/tools/random-letter-generator.html">Random Letter Generator</a>
+        <a href="/tools/picker-wheel.html">Picker Wheel</a>
+        <a href="/tools/random-word-generator.html">Random Word Generator</a>
+        <a href="/tools/team-generator.html">Team Generator</a>
+      </div>
+      <div>
+        <h4>More tools</h4>
+        <a href="/tools/random-number-generator.html">Random Number Generator</a>
+        <a href="/tools/coin-flip.html">Coin Flip</a>
+        <a href="/tools/dice-roller.html">Dice Roller</a>
+        <a href="/tools/password-generator.html">Password Generator</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> GenerateRandomLetter.com — All rights reserved.</span>
+      <span>Made for fair picks everywhere.</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var canvas = document.getElementById("wheel"),
+      ctx = canvas.getContext("2d"),
+      entriesEl = document.getElementById("entries"),
+      resultEl = document.getElementById("result"),
+      COLORS = ["#6c4cf1","#00b894","#ff9f43","#4dc3ff","#ff6b81","#a3e635","#f472b6","#facc15"],
+      rotation = 0, spinning = false, entries = [];
+
+  var PRESETS = {
+    names: ["Alice","Bob","Charlie","Diana","Ethan","Fiona","George","Hannah"],
+    yesno: ["Yes","No"],
+    nums: ["1","2","3","4","5","6","7","8","9","10"],
+    colors: ["Red","Blue","Green","Yellow","Purple","Orange","Pink","Teal"]
+  };
+
+  function readEntries(){
+    entries = entriesEl.value.split("\n").map(function(s){ return s.trim(); })
+      .filter(function(s){ return s.length > 0; }).slice(0, 50);
+    if(entries.length === 0) entries = ["Add entries"];
+  }
+
+  function draw(){
+    var n = entries.length, R = 180, cx = 190, cy = 190;
+    ctx.clearRect(0, 0, 380, 380);
+    var seg = Math.PI * 2 / n;
+    for(var i = 0; i < n; i++){
+      var a0 = rotation + i * seg, a1 = a0 + seg;
+      ctx.beginPath(); ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, R, a0, a1); ctx.closePath();
+      ctx.fillStyle = COLORS[i % COLORS.length]; ctx.fill();
+      ctx.strokeStyle = "rgba(255,255,255,.35)"; ctx.lineWidth = 2; ctx.stroke();
+      // label
+      ctx.save(); ctx.translate(cx, cy); ctx.rotate(a0 + seg / 2);
+      ctx.textAlign = "right"; ctx.fillStyle = "#fff";
+      ctx.font = "bold " + Math.max(11, Math.min(17, 220 / n)) + "px Inter, sans-serif";
+      var label = entries[i].length > 14 ? entries[i].slice(0, 13) + "…" : entries[i];
+      ctx.fillText(label, R - 14, 6);
+      ctx.restore();
+    }
+    // hub
+    ctx.beginPath(); ctx.arc(cx, cy, 26, 0, Math.PI * 2);
+    ctx.fillStyle = "#fff"; ctx.fill();
+    ctx.fillStyle = "#6c4cf1"; ctx.font = "800 15px Inter, sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("SPIN", cx, cy + 1);
+  }
+
+  function spin(){
+    if(spinning || entries.length < 2) return;
+    spinning = true;
+    resultEl.textContent = "Spinning…";
+    var seg = Math.PI * 2 / entries.length,
+        // random final offset so pointer (top) lands inside a random segment
+        target = Math.floor(cryptoRand() * entries.length),
+        // pointer is at angle -PI/2 (top). final rotation must satisfy:
+        // (-PI/2 - finalRotation) mod 2PI in [target*seg, (target+1)*seg]
+        current = ((rotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2),
+        want = ((-Math.PI / 2 - (target * seg + seg / 2)) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2),
+        delta = (want - current + Math.PI * 2) % (Math.PI * 2),
+        total = Math.PI * 2 * (5 + Math.floor(cryptoRand() * 4)) + delta,
+        start = rotation, dur = 4200, t0 = performance.now();
+    function cryptoRand(){
+      var a = new Uint32Array(1);
+      (window.crypto || window.msCrypto).getRandomValues(a);
+      return a[0] / 4294967296;
+    }
+    function frame(t){
+      var p = Math.min((t - t0) / dur, 1),
+          e = 1 - Math.pow(1 - p, 4); // easeOutQuart
+      rotation = start + total * e;
+      draw();
+      if(p < 1){ requestAnimationFrame(frame); }
+      else {
+        spinning = false;
+        resultEl.innerHTML = "🎉 Winner: <strong>" + escapeHtml(entries[target]) + "</strong>";
+        grlConfetti(140);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  entriesEl.addEventListener("input", function(){ readEntries(); draw(); });
+  document.getElementById("updateBtn").addEventListener("click", function(){ readEntries(); draw(); });
+  document.getElementById("spinBtn").addEventListener("click", spin);
+  canvas.addEventListener("click", spin);
+  document.querySelectorAll("[data-preset]").forEach(function(b){
+    b.addEventListener("click", function(){
+      entriesEl.value = PRESETS[b.getAttribute("data-preset")].join("\n");
+      readEntries(); draw();
+    });
+  });
+  readEntries(); draw();
+})();
+</script>
+</body>
+</html>

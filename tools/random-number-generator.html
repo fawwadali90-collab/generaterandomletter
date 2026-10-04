@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Number Generator — Pick Random Numbers in Any Range</title>
+<meta name="description" content="Free random number generator. Generate random numbers between any min and max, with or without duplicates. Perfect for raffles, games and statistics.">
+<link rel="canonical" href="https://generaterandomletter.com/tools/random-number-generator.html">
+<meta property="og:title" content="Random Number Generator — Pick Random Numbers in Any Range">
+<meta property="og:description" content="Free random number generator. Generate random numbers between any min and max, with or without duplicates. Perfect for raffles, games and statistics.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://generaterandomletter.com/tools/random-number-generator.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I generate a random number between 1 and 100?","acceptedAnswer":{"@type":"Answer","text":"Set Min to 1, Max to 100, choose how many numbers you want, and press Generate. Duplicates can be allowed or excluded."}},
+{"@type":"Question","name":"Are the numbers truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes — they come from your browser's cryptographic random number generator, giving every number in the range an equal chance."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="mark">R</span> GenerateRandomLetter</a>
+    <nav class="nav">
+      <a href="/#tools">All Tools</a>
+      <a href="/tools/picker-wheel.html">Picker Wheel</a>
+      <a href="/tools/random-word-generator.html">Word Generator</a>
+      <a class="cta" href="/tools/random-letter-generator.html">Random Letter</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+  <nav class="crumbs"><a href="/">Home</a> › Random Number Generator</nav>
+  <div class="tool-hero">
+    <h1>🔢 Random Number Generator</h1>
+    <p class="lede">Generate random numbers in any range — with or without duplicates, sorted or shuffled.</p>
+    <div class="tool-stage">
+      <div class="result" id="result" aria-live="polite"></div>
+      <div class="controls">
+        <div class="field"><label for="min">Min</label><input type="number" id="min" value="1" style="width:90px"></div>
+        <div class="field"><label for="max">Max</label><input type="number" id="max" value="100" style="width:90px"></div>
+        <div class="field"><label for="count">Count</label><input type="number" id="count" value="1" min="1" max="100" style="width:80px"></div>
+        <button class="btn btn-brand btn-big" id="generate">Generate</button>
+      </div>
+      <div class="checks">
+        <label><input type="checkbox" id="unique" checked> No duplicates</label>
+        <label><input type="checkbox" id="sort"> Sort results</label>
+        <button class="copy-btn" id="copyBtn">Copy</button>
+      </div>
+      <div class="history" id="history"></div>
+    </div>
+    <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
+    <div class="prose">
+      <h2>About this tool</h2>
+      <p>The classic random number generator: pick any minimum and maximum, choose how many numbers you need, and get instant results. Enable "no duplicates" for raffle draws and lottery-style picks, or sort the output for clean lists.</p>
+      <h2>Popular uses</h2>
+      <ul>
+        <li><strong>Raffles:</strong> assign ticket numbers and draw winners without duplicates.</li>
+        <li><strong>Games:</strong> random encounters, loot rolls, bingo numbers.</li>
+        <li><strong>Teaching:</strong> probability demos and math exercises.</li>
+        <li><strong>Decisions:</strong> "pick a number between 1 and 10" — settled.</li>
+      </ul>
+    </div>
+    <div class="prose faq">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How do I generate a random number between 1 and 100?</summary><p>Set Min to 1, Max to 100, choose how many numbers you want, and press Generate.</p></details>
+      <details><summary>Are the numbers truly random?</summary><p>Yes — every number in your range has an exactly equal chance, using cryptographic-quality randomness.</p></details>
+      <details><summary>What happens if I request more unique numbers than the range allows?</summary><p>The tool automatically caps the count at the size of the range so you always get valid results.</p></details>
+    </div>
+    <div class="prose">
+      <h2>More number &amp; game tools</h2>
+      <div class="tool-grid">
+        <a class="tool-card" href="/tools/dice-roller.html"><span class="icon">🎲</span><h3>Dice Roller</h3><p>Roll d4 through d20.</p></a>
+        <a class="tool-card" href="/tools/coin-flip.html"><span class="icon">🪙</span><h3>Coin Flip</h3><p>Heads or tails.</p></a>
+        <a class="tool-card" href="/tools/picker-wheel.html"><span class="icon">🎡</span><h3>Picker Wheel</h3><p>Spin for a winner.</p></a>
+        <a class="tool-card" href="/"><span class="icon">🏠</span><h3>All Tools</h3><p>Browse all 12 generators.</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span class="mark">R</span> GenerateRandomLetter</div>
+      <p style="font-size:.9rem;max-width:340px">Free random generators and decision pickers for games, classrooms, giveaways and everyday choices.</p></div>
+      <div><h4>Popular tools</h4>
+        <a href="/tools/random-letter-generator.html">Random Letter Generator</a>
+        <a href="/tools/picker-wheel.html">Picker Wheel</a>
+        <a href="/tools/random-word-generator.html">Random Word Generator</a>
+        <a href="/tools/team-generator.html">Team Generator</a></div>
+      <div><h4>More tools</h4>
+        <a href="/tools/random-number-generator.html">Random Number Generator</a>
+        <a href="/tools/coin-flip.html">Coin Flip</a>
+        <a href="/tools/dice-roller.html">Dice Roller</a>
+        <a href="/tools/password-generator.html">Password Generator</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year>2026</span> GenerateRandomLetter.com — All rights reserved.</span><span>Made for fair picks everywhere.</span></div>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var result = document.getElementById("result"), hist = document.getElementById("history"), history = [];
+  function generate(){
+    var min = parseInt(document.getElementById("min").value, 10) || 1,
+        max = parseInt(document.getElementById("max").value, 10) || 100,
+        n = Math.min(Math.max(parseInt(document.getElementById("count").value, 10) || 1, 1), 100),
+        unique = document.getElementById("unique").checked,
+        sort = document.getElementById("sort").checked;
+    if(max < min){ var t = min; min = max; max = t; }
+    var out = [];
+    if(unique){
+      var range = [];
+      for(var i = min; i <= max; i++) range.push(i);
+      range = grlShuffle(range);
+      out = range.slice(0, Math.min(n, range.length));
+    } else {
+      for(var j = 0; j < n; j++) out.push(grlRand(min, max));
+    }
+    if(sort) out.sort(function(a, b){ return a - b; });
+    result.innerHTML = out.map(function(x){
+      return out.length === 1 ? '<span class="big-letter" style="font-size:clamp(4rem,14vw,7rem)">' + x + "</span>"
+        : '<span class="pill active" style="font-size:1.3rem;padding:8px 18px">' + x + "</span>";
+    }).join("");
+    history.unshift(out.join(", "));
+    if(history.length > 6) history.pop();
+    hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+    if(out.length === 1) grlConfetti(50);
+  }
+  document.getElementById("generate").addEventListener("click", generate);
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    grlCopy(result.textContent.trim().replace(/\s+/g, " "), this);
+  });
+  generate();
+})();
+</script>
+</body>
+</html>

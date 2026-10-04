@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Letter Generator — Generate Random Letters A–Z Free</title>
+<meta name="description" content="Free random letter generator. Generate random letters A–Z instantly — filter vowels, consonants, uppercase or lowercase. Perfect for games, classrooms and giveaways.">
+<link rel="canonical" href="https://generaterandomletter.com/tools/random-letter-generator.html">
+<meta property="og:title" content="Random Letter Generator — Generate Random Letters A–Z Free">
+<meta property="og:description" content="Free random letter generator. Generate random letters A–Z instantly — filter vowels, consonants, uppercase or lowercase. Perfect for games, classrooms and giveaways.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://generaterandomletter.com/tools/random-letter-generator.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔤</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does the random letter generator work?","acceptedAnswer":{"@type":"Answer","text":"It uses your browser's cryptographic random number generator to pick letters from A to Z. You can filter by vowels, consonants, uppercase or lowercase, and generate up to 20 letters at once."}},
+{"@type":"Question","name":"Can I generate only vowels or only consonants?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Letter Type dropdown to choose All Letters, Vowels Only (A E I O U) or Consonants Only."}},
+{"@type":"Question","name":"What is a random letter generator used for?","acceptedAnswer":{"@type":"Answer","text":"Common uses include classroom games, alphabet learning, Pictionary-style drawing prompts, raffle draws, password seeds, and deciding team names or turn order."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="mark">R</span> GenerateRandomLetter</a>
+    <nav class="nav">
+      <a href="/#tools">All Tools</a>
+      <a href="/tools/picker-wheel.html">Picker Wheel</a>
+      <a href="/tools/random-word-generator.html">Word Generator</a>
+      <a class="cta" href="/tools/random-letter-generator.html">Random Letter</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs"><a href="/">Home</a> › Random Letter Generator</nav>
+  <div class="tool-hero">
+    <h1>🔤 Random Letter Generator</h1>
+    <p class="lede">Generate truly random letters from A to Z in one click. Filter by vowels, consonants or case — free, instant, no signup.</p>
+    <div class="tool-stage">
+      <div class="result" id="result" aria-live="polite"><span class="big-letter">?</span></div>
+      <div class="controls">
+        <div class="field"><label for="count">How many</label>
+          <select id="count"><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option><option>20</option></select>
+        </div>
+        <div class="field"><label for="ltype">Letter type</label>
+          <select id="ltype"><option value="all">All letters</option><option value="vowels">Vowels only</option><option value="consonants">Consonants only</option></select>
+        </div>
+        <div class="field"><label for="lcase">Case</label>
+          <select id="lcase"><option value="upper">UPPERCASE</option><option value="lower">lowercase</option><option value="mixed">MiXeD</option></select>
+        </div>
+        <button class="btn btn-brand btn-big" id="generate">Generate</button>
+      </div>
+      <div class="checks">
+        <label><input type="checkbox" id="norepeat"> No repeating letters</label>
+        <button class="copy-btn" id="copyBtn">Copy</button>
+      </div>
+      <div class="history" id="history"></div>
+    </div>
+
+    <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
+
+    <div class="prose">
+      <h2>About this random letter generator</h2>
+      <p>This free tool picks random letters from the English alphabet (A–Z) using cryptographic-quality randomness built into your browser. Unlike flipping through a book or pointing at an alphabet chart, every letter has an exactly equal chance — making it perfect whenever you need a genuinely fair pick.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Choose how many letters you want (1–20).</li>
+        <li>Pick a letter type: all letters, vowels only, or consonants only.</li>
+        <li>Select uppercase, lowercase or mixed case.</li>
+        <li>Hit <strong>Generate</strong> — tap again for a new set anytime.</li>
+      </ol>
+      <h2>Popular uses</h2>
+      <ul>
+        <li><strong>Classroom games:</strong> call out a letter and have students name something starting with it.</li>
+        <li><strong>Drawing games:</strong> generate 3 random letters and draw something using all of them.</li>
+        <li><strong>Raffles &amp; draws:</strong> assign letters to entrants and draw winners fairly.</li>
+        <li><strong>Turn order:</strong> closest letter to A goes first — no arguments.</li>
+        <li><strong>Alphabet practice:</strong> a fun way for kids to learn letter recognition.</li>
+      </ul>
+    </div>
+
+    <div class="prose faq">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How does the random letter generator work?</summary><p>It uses your browser's cryptographic random number generator to pick letters from A to Z. You can filter by vowels, consonants, uppercase or lowercase, and generate up to 20 letters at once.</p></details>
+      <details><summary>Can I generate only vowels or only consonants?</summary><p>Yes. Use the Letter Type dropdown to choose All Letters, Vowels Only (A E I O U) or Consonants Only.</p></details>
+      <details><summary>Is it really random?</summary><p>Yes — results come from <code>crypto.getRandomValues()</code>, which is cryptographic-quality randomness, not a predictable pattern.</p></details>
+      <details><summary>What is a random letter generator used for?</summary><p>Classroom games, alphabet learning, Pictionary-style prompts, raffle draws, deciding turn order and more.</p></details>
+    </div>
+
+    <div class="prose">
+      <h2>Try more random tools</h2>
+      <div class="tool-grid">
+        <a class="tool-card" href="/tools/random-word-generator.html"><span class="icon">📝</span><h3>Random Word Generator</h3><p>Random words for games and writing.</p></a>
+        <a class="tool-card" href="/tools/picker-wheel.html"><span class="icon">🎡</span><h3>Picker Wheel</h3><p>Spin the wheel to pick a winner.</p></a>
+        <a class="tool-card" href="/tools/random-number-generator.html"><span class="icon">🔢</span><h3>Random Number Generator</h3><p>Numbers in any range you choose.</p></a>
+        <a class="tool-card" href="/"><span class="icon">🏠</span><h3>All Tools</h3><p>Browse all 12 free generators.</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><span class="mark">R</span> GenerateRandomLetter</div>
+        <p style="font-size:.9rem;max-width:340px">Free random generators and decision pickers for games, classrooms, giveaways and everyday choices.</p>
+      </div>
+      <div>
+        <h4>Popular tools</h4>
+        <a href="/tools/random-letter-generator.html">Random Letter Generator</a>
+        <a href="/tools/picker-wheel.html">Picker Wheel</a>
+        <a href="/tools/random-word-generator.html">Random Word Generator</a>
+        <a href="/tools/team-generator.html">Team Generator</a>
+      </div>
+      <div>
+        <h4>More tools</h4>
+        <a href="/tools/random-number-generator.html">Random Number Generator</a>
+        <a href="/tools/coin-flip.html">Coin Flip</a>
+        <a href="/tools/dice-roller.html">Dice Roller</a>
+        <a href="/tools/password-generator.html">Password Generator</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> GenerateRandomLetter.com — All rights reserved.</span>
+      <span>Made for fair picks everywhere.</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var VOWELS = "AEIOU".split(""), CONS = "BCDFGHJKLMNPQRSTVWXYZ".split("");
+  var result = document.getElementById("result"),
+      hist = document.getElementById("history"),
+      history = [];
+  function pool(){
+    var t = document.getElementById("ltype").value;
+    return t === "vowels" ? VOWELS : t === "consonants" ? CONS : VOWELS.concat(CONS);
+  }
+  function styleLetter(ch){
+    var c = document.getElementById("lcase").value;
+    if(c === "lower") return ch.toLowerCase();
+    if(c === "mixed") return Math.random() < .5 ? ch.toLowerCase() : ch;
+    return ch;
+  }
+  function generate(){
+    var p = pool(), n = parseInt(document.getElementById("count").value, 10),
+        noRepeat = document.getElementById("norepeat").checked,
+        src = noRepeat ? grlShuffle(p) : p, out = [];
+    for(var i = 0; i < n; i++){
+      out.push(styleLetter(noRepeat ? src[i % src.length] : grlPick(src)));
+    }
+    var html = out.map(function(ch){
+      return n === 1 ? '<span class="big-letter">' + ch + "</span>"
+                     : '<span class="pill active" style="font-size:1.6rem;padding:10px 20px">' + ch + "</span>";
+    }).join("");
+    result.innerHTML = html;
+    var flat = out.join(n === 1 ? "" : " ");
+    history.unshift(flat);
+    if(history.length > 8) history.pop();
+    hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+    if(n === 1) grlConfetti(60);
+  }
+  document.getElementById("generate").addEventListener("click", generate);
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    grlCopy(result.textContent.trim().replace(/\s+/g, " "), this);
+  });
+  generate();
+})();
+</script>
+</body>
+</html>

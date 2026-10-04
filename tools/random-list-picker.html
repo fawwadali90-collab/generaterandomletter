@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random List Picker — Pick Random Winners from a List Free</title>
+<meta name="description" content="Free random list picker. Paste any list and draw random winners instantly — perfect for giveaways, raffles and contests. Shuffle lists too.">
+<link rel="canonical" href="https://generaterandomletter.com/tools/random-list-picker.html">
+<meta property="og:title" content="Random List Picker — Pick Random Winners from a List Free">
+<meta property="og:description" content="Free random list picker. Paste any list and draw random winners instantly — perfect for giveaways, raffles and contests. Shuffle lists too.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://generaterandomletter.com/tools/random-list-picker.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I pick a random winner from a list?","acceptedAnswer":{"@type":"Answer","text":"Paste your entries one per line, choose how many winners to draw, and press Pick Winners. Winners are removed so you can draw again for runner-ups."}},
+{"@type":"Question","name":"Is the draw fair?","acceptedAnswer":{"@type":"Answer","text":"Yes — winners are selected with cryptographic-quality randomness, giving every entry an equal chance."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="mark">R</span> GenerateRandomLetter</a>
+    <nav class="nav">
+      <a href="/#tools">All Tools</a>
+      <a href="/tools/picker-wheel.html">Picker Wheel</a>
+      <a href="/tools/random-word-generator.html">Word Generator</a>
+      <a class="cta" href="/tools/random-letter-generator.html">Random Letter</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+  <nav class="crumbs"><a href="/">Home</a> › Random List Picker</nav>
+  <div class="tool-hero">
+    <h1>🎯 Random List Picker</h1>
+    <p class="lede">Paste any list — entrants, names, ideas — and draw random winners. Ideal for giveaways and raffles.</p>
+    <div class="tool-stage">
+      <div class="wheel-wrap">
+        <div class="wheel-inputs" style="max-width:380px">
+          <label for="items" style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#a7abc0">Your list (one per line)</label>
+          <textarea id="items" spellcheck="false">@gamer_gal
+@pixelpete
+@lucky_luna
+@turbo_tess
+@modem_mike
+@joystick_joe
+@retro_rita
+@byte_ben</textarea>
+          <div class="controls" style="margin-top:12px">
+            <div class="field"><label for="wcount">Winners</label>
+              <select id="wcount"><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option></select>
+            </div>
+            <button class="btn btn-brand" id="pickBtn">Pick Winners</button>
+          </div>
+          <button class="btn btn-ghost" id="shuffleBtn" style="width:100%;justify-content:center;margin-top:10px">🔀 Shuffle List</button>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <div class="result small" id="result" aria-live="polite" style="justify-content:flex-start;flex-direction:column;align-items:stretch;gap:10px"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
+    <div class="prose">
+      <h2>About this tool</h2>
+      <p>Drop in any list and draw any number of random winners. Winners are removed from the pool automatically, so you can keep drawing for 2nd and 3rd place without repeats. Need the whole list in random order instead? Hit shuffle.</p>
+      <h2>Popular uses</h2>
+      <ul>
+        <li><strong>Giveaways:</strong> draw winners from comment or entrant lists.</li>
+        <li><strong>Raffles:</strong> fair, verifiable draws you can screen-share.</li>
+        <li><strong>Secret Santa:</strong> shuffle the list and pair neighbors.</li>
+        <li><strong>Prioritizing:</strong> shuffle a to-do list and tackle it top-down.</li>
+      </ul>
+    </div>
+    <div class="prose faq">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How do I pick a random winner from a list?</summary><p>Paste your entries one per line, choose how many winners to draw, and press Pick Winners.</p></details>
+      <details><summary>Is the draw fair?</summary><p>Yes — winners are selected with cryptographic-quality randomness; every entry has an equal chance.</p></details>
+      <details><summary>Can I draw multiple winners without repeats?</summary><p>Yes. Winners are automatically removed from the pool, so just press Pick Winners again for the next round.</p></details>
+    </div>
+    <div class="prose">
+      <h2>More winner-picking tools</h2>
+      <div class="tool-grid">
+        <a class="tool-card" href="/tools/picker-wheel.html"><span class="icon">🎡</span><h3>Picker Wheel</h3><p>Spin for a winner.</p></a>
+        <a class="tool-card" href="/tools/team-generator.html"><span class="icon">👥</span><h3>Team Generator</h3><p>Split into teams.</p></a>
+        <a class="tool-card" href="/tools/random-number-generator.html"><span class="icon">🔢</span><h3>Random Number Generator</h3><p>Draw ticket numbers.</p></a>
+        <a class="tool-card" href="/"><span class="icon">🏠</span><h3>All Tools</h3><p>Browse all 12 generators.</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span class="mark">R</span> GenerateRandomLetter</div>
+      <p style="font-size:.9rem;max-width:340px">Free random generators and decision pickers for games, classrooms, giveaways and everyday choices.</p></div>
+      <div><h4>Popular tools</h4>
+        <a href="/tools/random-letter-generator.html">Random Letter Generator</a>
+        <a href="/tools/picker-wheel.html">Picker Wheel</a>
+        <a href="/tools/random-word-generator.html">Random Word Generator</a>
+        <a href="/tools/team-generator.html">Team Generator</a></div>
+      <div><h4>More tools</h4>
+        <a href="/tools/random-number-generator.html">Random Number Generator</a>
+        <a href="/tools/coin-flip.html">Coin Flip</a>
+        <a href="/tools/dice-roller.html">Dice Roller</a>
+        <a href="/tools/password-generator.html">Password Generator</a></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year>2026</span> GenerateRandomLetter.com — All rights reserved.</span><span>Made for fair picks everywhere.</span></div>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var pool = [];
+  function readList(){
+    return document.getElementById("items").value.split("\n")
+      .map(function(s){ return s.trim(); }).filter(Boolean);
+  }
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function pick(){
+    var list = readList();
+    if(!list.length){ document.getElementById("result").innerHTML = "Add some entries first."; return; }
+    var n = Math.min(parseInt(document.getElementById("wcount").value, 10), list.length);
+    var shuffled = grlShuffle(list), winners = shuffled.slice(0, n);
+    document.getElementById("result").innerHTML = winners.map(function(w, i){
+      var medal = ["🥇","🥈","🥉"][i] || "🏅";
+      return '<div style="background:#22262f;border:1px solid #343947;border-radius:12px;padding:14px 18px;font-size:1.25rem;font-weight:700">' +
+        medal + " " + esc(w) + "</div>";
+    }).join("");
+    grlConfetti(110);
+  }
+  function shuffle(){
+    var list = readList();
+    if(!list.length) return;
+    var s = grlShuffle(list);
+    document.getElementById("items").value = s.join("\n");
+    document.getElementById("result").innerHTML =
+      '<div style="color:#a7abc0">List shuffled! New order:<br><br>' +
+      s.slice(0, 8).map(function(x, i){ return "<code>" + (i+1) + ". " + esc(x) + "</code>"; }).join(" ") +
+      (s.length > 8 ? "<code>…+" + (s.length - 8) + " more</code>" : "") + "</div>";
+  }
+  document.getElementById("pickBtn").addEventListener("click", pick);
+  document.getElementById("shuffleBtn").addEventListener("click", shuffle);
+})();
+</script>
+</body>
+</html>
