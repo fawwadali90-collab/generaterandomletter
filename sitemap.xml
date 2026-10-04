@@ -27,4 +27,5 @@
   <url><loc>https://generaterandomletter.com/about</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://generaterandomletter.com/privacy-policy</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://generaterandomletter.com/terms-of-service</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://generaterandomletter.com/contact</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>
