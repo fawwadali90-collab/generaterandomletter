@@ -154,3 +154,7 @@ footer a:hover{color:#fff}
 .tile-in{animation:tileIn .5s cubic-bezier(.2,1.5,.4,1) backwards}
 @keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(255,217,61,.5))}50%{filter:drop-shadow(0 0 22px rgba(255,217,61,.95))}}
 .glow-pulse{animation:glowPulse 1.6s ease-in-out infinite}
+
+/* Footer bottom bar: keep legal links in one tidy row */
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-links a{display:inline;margin:0;font-size:.82rem}
