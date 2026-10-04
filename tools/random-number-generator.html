@@ -15,10 +15,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>">
+<style>
+.num-stage{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:150px;padding:14px 0}
+.num-ball{width:96px;height:96px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1.9rem;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.25);box-shadow:0 12px 26px rgba(0,0,0,.4),inset 0 4px 10px rgba(255,255,255,.4),inset 0 -8px 14px rgba(0,0,0,.28);background:radial-gradient(circle at 32% 28%,#ffffff66,transparent 42%),linear-gradient(135deg,var(--c1),var(--c2))}
+.num-hero{font-size:clamp(4.5rem,15vw,7.5rem);font-weight:800;background:linear-gradient(135deg,#ffd93d,#ff9f43 45%,#ff6b81);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(255,159,67,.35));letter-spacing:-.03em}
+@keyframes ballIn{0%{transform:translateY(-60px) scale(.5);opacity:0}55%{transform:translateY(8px) scale(1.08);opacity:1}75%{transform:translateY(-6px) scale(.97)}100%{transform:translateY(0) scale(1)}}
+.ball-in{animation:ballIn .55s cubic-bezier(.2,1.4,.4,1) backwards}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How do I generate a random number between 1 and 100?","acceptedAnswer":{"@type":"Answer","text":"Set Min to 1, Max to 100, choose how many numbers you want, and press Generate. Duplicates can be allowed or excluded."}},
-{"@type":"Question","name":"Are the numbers truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes — they come from your browser's cryptographic random number generator, giving every number in the range an equal chance."}}
+{"@type":"Question","name":"Are the numbers truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes — they come from your browser's cryptographic random number generator, giving every number in the range an equal chance."}},
+{"@type":"Question","name":"Can I generate random numbers without duplicates?","acceptedAnswer":{"@type":"Answer","text":"Yes. Keep 'No duplicates' checked and you'll get a unique set — ideal for raffle draws, lottery-style picks, and bingo numbers. The count is automatically capped at the size of your range."}},
+{"@type":"Question","name":"What is a random number generator used for?","acceptedAnswer":{"@type":"Answer","text":"Raffle and giveaway draws, lottery-style picks, bingo numbers, dice substitutes in board games, random sampling for surveys, probability demonstrations in classrooms, and quick everyday decisions."}},
+{"@type":"Question","name":"Can I sort the generated numbers?","acceptedAnswer":{"@type":"Answer","text":"Yes — tick 'Sort results' to get your numbers in ascending order, handy for lottery tickets and clean lists."}},
+{"@type":"Question","name":"What's the biggest range I can use?","acceptedAnswer":{"@type":"Answer","text":"Any whole-number range works, and you can draw up to 100 numbers at once. Negative numbers are fine too — just type them into Min and Max."}},
+{"@type":"Question","name":"How is this different from a dice roller?","acceptedAnswer":{"@type":"Answer","text":"A dice roller simulates physical dice (1–6, 1–20, etc.), while this generator works with any custom range — 1–1000, 50–75, or whatever your game or draw needs."}}
 ]}
 </script>
 </head>
@@ -40,12 +52,13 @@
     <h1>🔢 Random Number Generator</h1>
     <p class="lede">Generate random numbers in any range — with or without duplicates, sorted or shuffled.</p>
     <div class="tool-stage">
-      <div class="result" id="result" aria-live="polite"></div>
+      <div class="num-stage" id="result" aria-live="polite"></div>
       <div class="controls">
         <div class="field"><label for="min">Min</label><input type="number" id="min" value="1" style="width:90px"></div>
         <div class="field"><label for="max">Max</label><input type="number" id="max" value="100" style="width:90px"></div>
         <div class="field"><label for="count">Count</label><input type="number" id="count" value="1" min="1" max="100" style="width:80px"></div>
-        <button class="btn btn-brand btn-big" id="generate">Generate</button>
+        <button class="btn btn-brand btn-big" id="generate">🔢 Generate</button>
+        <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
       </div>
       <div class="checks">
         <label><input type="checkbox" id="unique" checked> No duplicates</label>
@@ -56,21 +69,35 @@
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>The classic random number generator: pick any minimum and maximum, choose how many numbers you need, and get instant results. Enable "no duplicates" for raffle draws and lottery-style picks, or sort the output for clean lists.</p>
+      <h2>About this random number generator</h2>
+      <p>The classic random number generator: pick any minimum and maximum, choose how many numbers you need, and get instant results. Enable "No duplicates" for raffle draws and lottery-style picks, or sort the output for clean lists. Negative numbers work too — just type them in.</p>
+      <p>Every draw uses <strong>cryptographic-quality randomness</strong>, so each number in your range has an exactly equal chance. That matters when the draw has real stakes — a raffle winner, a bingo caller, or a random sample for a survey or classroom statistics demo. Unlike "pick a number" games where humans unconsciously favor certain digits, this tool has no favorites.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Set your <strong>Min</strong> and <strong>Max</strong> (any whole numbers, e.g. 1–100).</li>
+        <li>Choose how many numbers to draw (up to 100).</li>
+        <li>Tick <strong>No duplicates</strong> for raffle-style draws, <strong>Sort results</strong> for tidy lists.</li>
+        <li>Hit <strong>Generate</strong> — tap again for a fresh draw anytime.</li>
+      </ol>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Raffles:</strong> assign ticket numbers and draw winners without duplicates.</li>
-        <li><strong>Games:</strong> random encounters, loot rolls, bingo numbers.</li>
-        <li><strong>Teaching:</strong> probability demos and math exercises.</li>
-        <li><strong>Decisions:</strong> "pick a number between 1 and 10" — settled.</li>
+        <li><strong>Raffles &amp; giveaways:</strong> assign ticket numbers and draw winners without duplicates.</li>
+        <li><strong>Bingo &amp; lottery-style games:</strong> draw sorted, unique numbers just like the real thing.</li>
+        <li><strong>Board games:</strong> a substitute for any die — d100, d1000, whatever you need. Or use our dedicated <a href="/tools/dice-roller">dice roller</a>.</li>
+        <li><strong>Teaching probability:</strong> run 100 draws and watch the distribution even out — a vivid statistics demo.</li>
+        <li><strong>Random sampling:</strong> pick survey respondents or test cases fairly.</li>
+        <li><strong>Decisions:</strong> "pick a number between 1 and 10" — settled in one tap.</li>
       </ul>
     </div>
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
       <details><summary>How do I generate a random number between 1 and 100?</summary><p>Set Min to 1, Max to 100, choose how many numbers you want, and press Generate.</p></details>
       <details><summary>Are the numbers truly random?</summary><p>Yes — every number in your range has an exactly equal chance, using cryptographic-quality randomness.</p></details>
-      <details><summary>What happens if I request more unique numbers than the range allows?</summary><p>The tool automatically caps the count at the size of the range so you always get valid results.</p></details>
+      <details><summary>Can I generate random numbers without duplicates?</summary><p>Yes. Keep "No duplicates" checked and you'll get a unique set — ideal for raffle draws, lottery-style picks, and bingo numbers. The count is automatically capped at the size of your range.</p></details>
+      <details><summary>What is a random number generator used for?</summary><p>Raffle and giveaway draws, lottery-style picks, bingo numbers, dice substitutes in board games, random sampling for surveys, probability demonstrations in classrooms, and quick everyday decisions.</p></details>
+      <details><summary>Can I sort the generated numbers?</summary><p>Yes — tick "Sort results" to get your numbers in ascending order, handy for lottery tickets and clean lists.</p></details>
+      <details><summary>What's the biggest range I can use?</summary><p>Any whole-number range works, and you can draw up to 100 numbers at once. Negative numbers are fine too — just type them into Min and Max.</p></details>
+      <details><summary>How is this different from a dice roller?</summary><p>A dice roller simulates physical dice (1–6, 1–20, etc.), while this generator works with any custom range — 1–1000, 50–75, or whatever your game or draw needs.</p></details>
     </div>
     <div class="prose">
       <h2>More number &amp; game tools</h2>
@@ -105,38 +132,69 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
-  var result = document.getElementById("result"), hist = document.getElementById("history"), history = [];
-  function generate(){
+  "use strict";
+  var result = document.getElementById("result"), hist = document.getElementById("history"),
+      history = [], busy = false;
+  var BALL_COLORS = [
+    ["#ff5f6d","#c81d5e"],["#4facfe","#2b4de4"],["#43e97b","#0ba360"],
+    ["#a855f7","#6d28d9"],["#fbbf24","#f97316"],["#22d3ee","#0e7490"]
+  ];
+  function readOpts(){
     var min = parseInt(document.getElementById("min").value, 10) || 1,
         max = parseInt(document.getElementById("max").value, 10) || 100,
-        n = Math.min(Math.max(parseInt(document.getElementById("count").value, 10) || 1, 1), 100),
-        unique = document.getElementById("unique").checked,
-        sort = document.getElementById("sort").checked;
+        n = Math.min(Math.max(parseInt(document.getElementById("count").value, 10) || 1, 1), 100);
     if(max < min){ var t = min; min = max; max = t; }
+    return { min: min, max: max, n: n,
+      unique: document.getElementById("unique").checked,
+      sort: document.getElementById("sort").checked };
+  }
+  function draw(o){
     var out = [];
-    if(unique){
+    if(o.unique){
       var range = [];
-      for(var i = min; i <= max; i++) range.push(i);
-      range = grlShuffle(range);
-      out = range.slice(0, Math.min(n, range.length));
+      for(var i = o.min; i <= o.max; i++) range.push(i);
+      out = grlShuffle(range).slice(0, Math.min(o.n, range.length));
     } else {
-      for(var j = 0; j < n; j++) out.push(grlRand(min, max));
+      for(var j = 0; j < o.n; j++) out.push(grlRand(o.min, o.max));
     }
-    if(sort) out.sort(function(a, b){ return a - b; });
-    result.innerHTML = out.map(function(x){
-      return out.length === 1 ? '<span class="big-letter" style="font-size:clamp(4rem,14vw,7rem)">' + x + "</span>"
-        : '<span class="pill active" style="font-size:1.3rem;padding:8px 18px">' + x + "</span>";
+    if(o.sort) out.sort(function(a, b){ return a - b; });
+    return out;
+  }
+  function render(nums, animate){
+    result.innerHTML = nums.map(function(x, i){
+      if(nums.length === 1)
+        return '<span class="num-hero' + (animate ? " flash-pop" : "") + '">' + x + "</span>";
+      var c = BALL_COLORS[i % BALL_COLORS.length];
+      var style = "--c1:" + c[0] + ";--c2:" + c[1] + ";" + (animate ? "animation-delay:" + (i*0.08) + "s;" : "");
+      return '<span class="num-ball' + (animate ? " ball-in" : "") + '" style="' + style + '">' + x + "</span>";
     }).join("");
-    history.unshift(out.join(", "));
-    if(history.length > 6) history.pop();
-    hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
-    if(out.length === 1) grlConfetti(50);
+  }
+  function generate(){
+    if(busy) return; busy = true;
+    var o = readOpts(), ticks = 0;
+    grlSfx.whoosh();
+    var iv = setInterval(function(){
+      render(draw(o), false);
+      grlSfx.tick();
+      if(++ticks > 6){
+        clearInterval(iv);
+        var out = draw(o);
+        render(out, true);
+        out.forEach(function(_, i){ setTimeout(function(){ grlSfx.pop(); }, 150 + i*80); });
+        setTimeout(function(){ if(out.length > 1) grlSfx.fanfare(); }, 150 + out.length*80);
+        history.unshift(out.join(", "));
+        if(history.length > 6) history.pop();
+        hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+        if(out.length === 1) grlConfetti(50);
+        busy = false;
+      }
+    }, 80);
   }
   document.getElementById("generate").addEventListener("click", generate);
   document.getElementById("copyBtn").addEventListener("click", function(){
     grlCopy(result.textContent.trim().replace(/\s+/g, " "), this);
   });
-  generate();
+  render(draw(readOpts()), true);
 })();
 </script>
 </body>

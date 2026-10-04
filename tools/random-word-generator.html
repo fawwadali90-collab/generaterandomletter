@@ -15,10 +15,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+<style>
+.word-stage{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:120px;padding:14px 0}
+.word-pill{display:inline-block;background:linear-gradient(135deg,#6c4cf1,#8b5cf6);color:#fff;font-weight:800;font-size:1.5rem;padding:14px 26px;border-radius:18px;box-shadow:0 10px 24px rgba(108,76,241,.4),inset 0 2px 6px rgba(255,255,255,.3);text-shadow:0 2px 0 rgba(0,0,0,.2)}
+.word-pill:nth-child(3n+1){background:linear-gradient(135deg,#00b894,#0e9f8a)}
+.word-pill:nth-child(3n+2){background:linear-gradient(135deg,#ff9f43,#f97316)}
+.word-hero{font-size:clamp(2.8rem,8vw,4.8rem);font-weight:800;background:linear-gradient(135deg,#ffd93d,#ff9f43 45%,#ff6b81);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(255,159,67,.35));letter-spacing:-.02em}
+@keyframes wordIn{0%{transform:translateY(-30px) scale(.7) rotate(-4deg);opacity:0}60%{transform:translateY(4px) scale(1.05) rotate(2deg);opacity:1}100%{transform:translateY(0) scale(1) rotate(0)}}
+.word-in{animation:wordIn .45s cubic-bezier(.2,1.5,.4,1) backwards}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is a random word generator used for?","acceptedAnswer":{"@type":"Answer","text":"Games like Pictionary and charades, creative writing prompts, vocabulary and spelling practice, brainstorming, and baby or character name inspiration."}},
-{"@type":"Question","name":"Can I filter words by type?","acceptedAnswer":{"@type":"Answer","text":"Yes — choose nouns, verbs, adjectives or all words, and optionally filter by starting letter."}}
+{"@type":"Question","name":"What is a random word generator used for?","acceptedAnswer":{"@type":"Answer","text":"Games like Pictionary, charades, Scattergories and Codenames, creative writing prompts, vocabulary and spelling practice, brainstorming sessions, and baby or character name inspiration."}},
+{"@type":"Question","name":"Can I filter words by type?","acceptedAnswer":{"@type":"Answer","text":"Yes — choose nouns, verbs, adjectives or all words, and optionally filter by starting letter."}},
+{"@type":"Question","name":"How many random words can I generate at once?","acceptedAnswer":{"@type":"Answer","text":"Up to 20 words per click. Generate again any time for a completely fresh set."}},
+{"@type":"Question","name":"Are the words suitable for kids and classrooms?","acceptedAnswer":{"@type":"Answer","text":"Yes. The word list is curated from common, recognizable English words — no obscure or inappropriate terms — making it safe for classrooms, ESL learners, and family game nights."}},
+{"@type":"Question","name":"Can I use this for Pictionary?","acceptedAnswer":{"@type":"Answer","text":"Absolutely — it's one of the most popular uses. Generate a word, keep it hidden from your team, and draw. Nobody can accuse anyone of picking easy words."}},
+{"@type":"Question","name":"How do writers use random word prompts?","acceptedAnswer":{"@type":"Answer","text":"A classic creativity exercise: generate 5 random words and weave every one into a story or poem. The forced connections break writer's block and spark unexpected ideas."}},
+{"@type":"Question","name":"Is the word selection truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes. Words are drawn with cryptographic-quality randomness, so every word in the filtered list has an equal chance of appearing."}}
 ]}
 </script>
 </head>
@@ -40,7 +54,7 @@
     <h1>📝 Random Word Generator</h1>
     <p class="lede">Generate random English words for games, writing and learning. Filter by word type or starting letter.</p>
     <div class="tool-stage">
-      <div class="result small" id="result" aria-live="polite" style="gap:10px"></div>
+      <div class="word-stage" id="result" aria-live="polite"></div>
       <div class="controls">
         <div class="field"><label for="count">Words</label>
           <select id="count"><option>1</option><option>3</option><option selected>5</option><option>10</option><option>20</option></select>
@@ -51,28 +65,38 @@
         <div class="field"><label for="starts">Starts with</label>
           <select id="starts"><option value="">Any letter</option></select>
         </div>
-        <button class="btn btn-brand btn-big" id="generate">Generate Words</button>
+        <button class="btn btn-brand btn-big" id="generate">📝 Generate Words</button>
+        <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
       </div>
       <div class="checks"><button class="copy-btn" id="copyBtn">Copy Words</button></div>
       <div class="history" id="history"></div>
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>Our random word generator picks from a curated list of common English words — nouns, verbs and adjectives — so every result is recognizable and usable. It's the fair way to draw words for games and a great spark for creative work.</p>
+      <h2>About this random word generator</h2>
+      <p>Our random word generator picks from a curated list of common English words — nouns, verbs and adjectives — so every result is recognizable and usable. Unlike generators that spit out obscure dictionary entries, every word here is one your group will actually know, which keeps games moving and prompts practical.</p>
+      <p>Filter by <strong>word type</strong> to match your game: nouns for Pictionary and drawing games, verbs for charades and action rounds, adjectives for creative writing and storytelling prompts. The <strong>starts-with filter</strong> narrows the draw to a single letter — perfect for alphabet-themed rounds, Scattergories-style challenges, and spelling practice. Generate up to 20 words at a time, free, with no signup.</p>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Pictionary &amp; charades:</strong> draw a word nobody chose — no cheating possible.</li>
-        <li><strong>Writing prompts:</strong> generate 5 words and weave them all into a story.</li>
-        <li><strong>Vocabulary practice:</strong> quiz yourself on meanings and spellings.</li>
-        <li><strong>Brainstorming:</strong> random words break mental ruts and spark ideas.</li>
+        <li><strong>Pictionary &amp; drawing games:</strong> draw a word nobody chose — no cheating possible, no "easy word" arguments.</li>
+        <li><strong>Charades &amp; Taboo-style games:</strong> verbs and nouns make perfect act-it-out or describe-it prompts.</li>
+        <li><strong>Codenames-style word games:</strong> generate a fresh word list for custom rounds.</li>
+        <li><strong>Writing prompts:</strong> generate 5 words and weave them all into a story — a classic cure for writer's block used by NaNoWriMo participants and creative writing classes.</li>
+        <li><strong>Vocabulary practice:</strong> quiz yourself on meanings and spellings; great for ESL learners and SAT/GRE prep.</li>
+        <li><strong>Brainstorming:</strong> random words break mental ruts and spark ideas in design sprints and team workshops.</li>
+        <li><strong>Name inspiration:</strong> writers and game masters use random nouns and adjectives to spark character, pet, and baby name ideas.</li>
       </ul>
+      <p>Need full sentences of inspiration? Try the <a href="/tools/random-name-generator">random name generator</a> for character names, or grab <a href="/tools/random-letter-generator">random letters</a> for alphabet games.</p>
     </div>
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
-      <details><summary>What is a random word generator used for?</summary><p>Games like Pictionary and charades, creative writing prompts, vocabulary and spelling practice, brainstorming, and name inspiration.</p></details>
+      <details><summary>What is a random word generator used for?</summary><p>Games like Pictionary, charades, Scattergories and Codenames, creative writing prompts, vocabulary and spelling practice, brainstorming sessions, and baby or character name inspiration.</p></details>
       <details><summary>Can I filter words by type?</summary><p>Yes — choose nouns, verbs, adjectives or all words, and optionally filter by starting letter.</p></details>
-      <details><summary>How many words can I generate?</summary><p>Up to 20 at a time. Generate again for a fresh set.</p></details>
+      <details><summary>How many random words can I generate at once?</summary><p>Up to 20 words per click. Generate again any time for a completely fresh set.</p></details>
+      <details><summary>Are the words suitable for kids and classrooms?</summary><p>Yes. The word list is curated from common, recognizable English words — no obscure or inappropriate terms — making it safe for classrooms, ESL learners, and family game nights.</p></details>
+      <details><summary>Can I use this for Pictionary?</summary><p>Absolutely — it's one of the most popular uses. Generate a word, keep it hidden from your team, and draw. Nobody can accuse anyone of picking easy words.</p></details>
+      <details><summary>How do writers use random word prompts?</summary><p>A classic creativity exercise: generate 5 random words and weave every one into a story or poem. The forced connections break writer's block and spark unexpected ideas.</p></details>
+      <details><summary>Is the word selection truly random?</summary><p>Yes. Words are drawn with cryptographic-quality randomness, so every word in the filtered list has an equal chance of appearing.</p></details>
     </div>
     <div class="prose">
       <h2>More word &amp; letter tools</h2>
@@ -107,6 +131,7 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
+  "use strict";
   var WORDS = {
     noun: "apple bridge candle dance eagle forest garden hammer island jungle kite lamp mountain nest ocean piano queen river star table umbrella violin window anchor balloon cloud drum engine flame grape hill ink jewel knife leaf moon needle orange pearl quilt rock ship tiger torch valley whale yarn zebra".split(" "),
     verb: "run jump sing dance write read build climb swim fly think laugh cry play work teach learn cook clean draw paint sing shine grow bloom chase catch throw kick push pull lift carry".split(" "),
@@ -116,26 +141,48 @@
   "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(function(ch){
     var o = document.createElement("option"); o.value = ch.toLowerCase(); o.textContent = ch; starts.appendChild(o);
   });
-  var result = document.getElementById("result"), hist = document.getElementById("history"), history = [];
-  function generate(){
+  var result = document.getElementById("result"), hist = document.getElementById("history"),
+      history = [], busy = false;
+  function pool(){
     var t = document.getElementById("wtype").value,
         s = document.getElementById("starts").value,
-        n = parseInt(document.getElementById("count").value, 10),
-        pool = t === "all" ? WORDS.noun.concat(WORDS.verb, WORDS.adj) : WORDS[t];
-    if(s) pool = pool.filter(function(w){ return w.charAt(0) === s; });
-    if(!pool.length) pool = WORDS.noun;
-    var out = [];
-    for(var i = 0; i < n; i++) out.push(grlPick(pool));
-    result.innerHTML = out.map(function(w){ return '<span class="pill active">' + w + "</span>"; }).join("");
-    history.unshift(out.join(", "));
-    if(history.length > 6) history.pop();
-    hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+        p = t === "all" ? WORDS.noun.concat(WORDS.verb, WORDS.adj) : WORDS[t];
+    if(s) p = p.filter(function(w){ return w.charAt(0) === s; });
+    return p.length ? p : WORDS.noun;
+  }
+  function render(words, animate){
+    result.innerHTML = words.map(function(w, i){
+      var cls = words.length === 1 ? "word-hero" : "word-pill";
+      var style = animate ? ' style="animation-delay:' + (i*0.09) + 's"' : "";
+      return '<span class="' + cls + (animate ? " word-in" : "") + '"' + style + ">" + w + "</span>";
+    }).join("");
+  }
+  function draw(){ var p = pool(), n = parseInt(document.getElementById("count").value, 10), out = []; for(var i=0;i<n;i++) out.push(grlPick(p)); return out; }
+  function generate(){
+    if(busy) return; busy = true;
+    var p = pool(), ticks = 0;
+    grlSfx.whoosh();
+    var iv = setInterval(function(){
+      render(draw(), false);
+      grlSfx.tick();
+      if(++ticks > 6){
+        clearInterval(iv);
+        var out = draw();
+        render(out, true);
+        out.forEach(function(_, i){ setTimeout(function(){ grlSfx.pop(); }, 120 + i*90); });
+        history.unshift(out.join(", "));
+        if(history.length > 6) history.pop();
+        hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+        if(out.length === 1) grlConfetti(40);
+        busy = false;
+      }
+    }, 80);
   }
   document.getElementById("generate").addEventListener("click", generate);
   document.getElementById("copyBtn").addEventListener("click", function(){
     grlCopy(result.textContent.trim().replace(/\s+/g, " "), this);
   });
-  generate();
+  render(draw(), true);
 })();
 </script>
 </body>

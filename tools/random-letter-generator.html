@@ -15,11 +15,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔤</text></svg>">
+<style>
+.letter-stage{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:170px;padding:14px 0}
+.letter-tile{width:132px;height:132px;font-size:4.6rem}
+.letter-tile.small{width:76px;height:76px;font-size:2.4rem;border-radius:18px}
+@media(max-width:640px){.letter-tile{width:96px;height:96px;font-size:3.4rem}.letter-tile.small{width:60px;height:60px;font-size:1.9rem}}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How does the random letter generator work?","acceptedAnswer":{"@type":"Answer","text":"It uses your browser's cryptographic random number generator to pick letters from A to Z. You can filter by vowels, consonants, uppercase or lowercase, and generate up to 20 letters at once."}},
 {"@type":"Question","name":"Can I generate only vowels or only consonants?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Letter Type dropdown to choose All Letters, Vowels Only (A E I O U) or Consonants Only."}},
-{"@type":"Question","name":"What is a random letter generator used for?","acceptedAnswer":{"@type":"Answer","text":"Common uses include classroom games, alphabet learning, Pictionary-style drawing prompts, raffle draws, password seeds, and deciding team names or turn order."}}
+{"@type":"Question","name":"Is the random letter generator really random?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every letter is picked with cryptographic-quality randomness, so each of the 26 letters has an exactly equal chance on every draw — no patterns, no favorites."}},
+{"@type":"Question","name":"What is a random letter generator used for?","acceptedAnswer":{"@type":"Answer","text":"Common uses include classroom vocabulary games, ESL phonics practice, Scrabble and Boggle-style word games, Pictionary prompts, cryptogram puzzles, raffle draws, and deciding turn order."}},
+{"@type":"Question","name":"Can I generate multiple random letters at once?","acceptedAnswer":{"@type":"Answer","text":"Yes — generate up to 20 letters in one click. Turn on 'No repeating letters' to get a unique set, handy for drawing game tiles or raffle letters."}},
+{"@type":"Question","name":"Does the vowel filter include Y?","acceptedAnswer":{"@type":"Answer","text":"The vowel filter uses the five standard vowels A, E, I, O, U. Y stays in the consonant group, matching how most word games like Scrabble classify it."}},
+{"@type":"Question","name":"Can teachers use this for classroom games?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Project it for the whole class and run vocabulary races, spelling bees, Scattergories-style rounds, and phonics drills. Our blog has 15 ready-made classroom games built around it."}}
 ]}
 </script>
 </head>
@@ -42,7 +52,7 @@
     <h1>🔤 Random Letter Generator</h1>
     <p class="lede">Generate truly random letters from A to Z in one click. Filter by vowels, consonants or case — free, instant, no signup.</p>
     <div class="tool-stage">
-      <div class="result" id="result" aria-live="polite"><span class="big-letter">?</span></div>
+      <div class="letter-stage" id="letterStage" aria-live="polite"></div>
       <div class="controls">
         <div class="field"><label for="count">How many</label>
           <select id="count"><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option><option>20</option></select>
@@ -53,7 +63,8 @@
         <div class="field"><label for="lcase">Case</label>
           <select id="lcase"><option value="upper">UPPERCASE</option><option value="lower">lowercase</option><option value="mixed">MiXeD</option></select>
         </div>
-        <button class="btn btn-brand btn-big" id="generate">Generate</button>
+        <button class="btn btn-brand btn-big" id="generate">🔤 Generate</button>
+        <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
       </div>
       <div class="checks">
         <label><input type="checkbox" id="norepeat"> No repeating letters</label>
@@ -66,7 +77,8 @@
 
     <div class="prose">
       <h2>About this random letter generator</h2>
-      <p>This free tool picks random letters from the English alphabet (A–Z) using cryptographic-quality randomness built into your browser. Unlike flipping through a book or pointing at an alphabet chart, every letter has an exactly equal chance — making it perfect whenever you need a genuinely fair pick.</p>
+      <p>This free tool picks random letters from the 26-letter English alphabet (A–Z) using cryptographic-quality randomness built into your browser. Unlike flipping through a book or pointing at an alphabet chart, every letter has an exactly equal chance — making it perfect whenever you need a genuinely fair pick.</p>
+      <p>The alphabet breaks down into 5 vowels (A, E, I, O, U) and 21 consonants. Use the <strong>vowels-only filter</strong> for phonics drills and word-game warm-ups, or <strong>consonants-only</strong> when you want harder prompts for games like Hangman or Scattergoids-style challenges. The no-repeat option deals you a unique set of tiles, just like drawing from a Scrabble bag.</p>
       <h2>How to use it</h2>
       <ol>
         <li>Choose how many letters you want (1–20).</li>
@@ -76,20 +88,25 @@
       </ol>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Classroom games:</strong> call out a letter and have students name something starting with it.</li>
-        <li><strong>Drawing games:</strong> generate 3 random letters and draw something using all of them.</li>
+        <li><strong>Classroom games:</strong> call out a letter and have students name something starting with it — great for ESL vocabulary and phonics practice.</li>
+        <li><strong>Word games:</strong> deal random tiles for Scrabble-style, Boggle-style, or Bananagrams-style play without the box.</li>
+        <li><strong>Drawing games:</strong> generate 3 random letters and draw something using all of them, Pictionary-style.</li>
+        <li><strong>Puzzles:</strong> seed cryptograms, puzzle hunts, and alphabet ciphers.</li>
         <li><strong>Raffles &amp; draws:</strong> assign letters to entrants and draw winners fairly.</li>
         <li><strong>Turn order:</strong> closest letter to A goes first — no arguments.</li>
-        <li><strong>Alphabet practice:</strong> a fun way for kids to learn letter recognition.</li>
       </ul>
+      <p>Looking for game ideas? Read our guide to <a href="/blog/random-letter-classroom-games">15 classroom games using a random letter generator</a>.</p>
     </div>
 
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
       <details><summary>How does the random letter generator work?</summary><p>It uses your browser's cryptographic random number generator to pick letters from A to Z. You can filter by vowels, consonants, uppercase or lowercase, and generate up to 20 letters at once.</p></details>
       <details><summary>Can I generate only vowels or only consonants?</summary><p>Yes. Use the Letter Type dropdown to choose All Letters, Vowels Only (A E I O U) or Consonants Only.</p></details>
-      <details><summary>Is it really random?</summary><p>Yes — results come from <code>crypto.getRandomValues()</code>, which is cryptographic-quality randomness, not a predictable pattern.</p></details>
-      <details><summary>What is a random letter generator used for?</summary><p>Classroom games, alphabet learning, Pictionary-style prompts, raffle draws, deciding turn order and more.</p></details>
+      <details><summary>Is the random letter generator really random?</summary><p>Yes. Every letter is picked with cryptographic-quality randomness, so each of the 26 letters has an exactly equal chance on every draw — no patterns, no favorites.</p></details>
+      <details><summary>What is a random letter generator used for?</summary><p>Common uses include classroom vocabulary games, ESL phonics practice, Scrabble and Boggle-style word games, Pictionary prompts, cryptogram puzzles, raffle draws, and deciding turn order.</p></details>
+      <details><summary>Can I generate multiple random letters at once?</summary><p>Yes — generate up to 20 letters in one click. Turn on "No repeating letters" to get a unique set, handy for drawing game tiles or raffle letters.</p></details>
+      <details><summary>Does the vowel filter include Y?</summary><p>The vowel filter uses the five standard vowels A, E, I, O, U. Y stays in the consonant group, matching how most word games like Scrabble classify it.</p></details>
+      <details><summary>Can teachers use this for classroom games?</summary><p>Absolutely. Project it for the whole class and run vocabulary races, spelling bees, Scattergories-style rounds, and phonics drills. Our blog has 15 ready-made classroom games built around it.</p></details>
     </div>
 
     <div class="prose">
@@ -135,10 +152,19 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
+  "use strict";
   var VOWELS = "AEIOU".split(""), CONS = "BCDFGHJKLMNPQRSTVWXYZ".split("");
-  var result = document.getElementById("result"),
+  var stage = document.getElementById("letterStage"),
       hist = document.getElementById("history"),
-      history = [];
+      history = [], busy = false;
+  var COLORS = [
+    "linear-gradient(135deg,#ff5f6d,#c81d5e)",
+    "linear-gradient(135deg,#4facfe,#2b4de4)",
+    "linear-gradient(135deg,#43e97b,#0ba360)",
+    "linear-gradient(135deg,#a855f7,#6d28d9)",
+    "linear-gradient(135deg,#fbbf24,#f97316)",
+    "linear-gradient(135deg,#22d3ee,#0e7490)"
+  ];
   function pool(){
     var t = document.getElementById("ltype").value;
     return t === "vowels" ? VOWELS : t === "consonants" ? CONS : VOWELS.concat(CONS);
@@ -149,29 +175,50 @@
     if(c === "mixed") return Math.random() < .5 ? ch.toLowerCase() : ch;
     return ch;
   }
-  function generate(){
+  function tileHTML(ch, i, single){
+    return '<span class="flash-tile tile-in letter-tile' + (single ? "" : " small") + '"' +
+      ' style="background:' + COLORS[i % COLORS.length] + ';animation-delay:' + (i*0.07) + 's">' + ch + "</span>";
+  }
+  function finalLetters(){
     var p = pool(), n = parseInt(document.getElementById("count").value, 10),
         noRepeat = document.getElementById("norepeat").checked,
         src = noRepeat ? grlShuffle(p) : p, out = [];
-    for(var i = 0; i < n; i++){
-      out.push(styleLetter(noRepeat ? src[i % src.length] : grlPick(src)));
-    }
-    var html = out.map(function(ch){
-      return n === 1 ? '<span class="big-letter">' + ch + "</span>"
-                     : '<span class="pill active" style="font-size:1.6rem;padding:10px 20px">' + ch + "</span>";
-    }).join("");
-    result.innerHTML = html;
-    var flat = out.join(n === 1 ? "" : " ");
-    history.unshift(flat);
-    if(history.length > 8) history.pop();
-    hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
-    if(n === 1) grlConfetti(60);
+    for(var i = 0; i < n; i++) out.push(styleLetter(noRepeat ? src[i % src.length] : grlPick(src)));
+    return out;
+  }
+  function generate(){
+    if(busy) return; busy = true;
+    var p = pool(), n = parseInt(document.getElementById("count").value, 10),
+        single = n === 1, ticks = 0;
+    grlSfx.whoosh();
+    var iv = setInterval(function(){
+      var tmp = [];
+      for(var i = 0; i < n; i++) tmp.push(styleLetter(grlPick(p)));
+      stage.innerHTML = tmp.map(function(ch, i){ return tileHTML(ch, i, single); }).join("");
+      grlSfx.tick();
+      if(++ticks > 6){
+        clearInterval(iv);
+        var out = finalLetters();
+        stage.innerHTML = out.map(function(ch, i){ return tileHTML(ch, i, single); }).join("");
+        out.forEach(function(_, i){ setTimeout(function(){ grlSfx.pop(); }, i*70); });
+        var flat = out.join(single ? "" : " ");
+        history.unshift(flat);
+        if(history.length > 8) history.pop();
+        hist.innerHTML = "Recent: " + history.map(function(h){ return "<code>" + h + "</code>"; }).join("");
+        if(single) grlConfetti(50);
+        busy = false;
+      }
+    }, 75);
   }
   document.getElementById("generate").addEventListener("click", generate);
   document.getElementById("copyBtn").addEventListener("click", function(){
-    grlCopy(result.textContent.trim().replace(/\s+/g, " "), this);
+    grlCopy(stage.textContent.trim().replace(/\s+/g, " "), this);
   });
-  generate();
+  // silent opening render
+  (function(){
+    var out = finalLetters(), single = out.length === 1;
+    stage.innerHTML = out.map(function(ch, i){ return tileHTML(ch, i, single); }).join("");
+  })();
 })();
 </script>
 </body>

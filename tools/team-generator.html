@@ -15,10 +15,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👥</text></svg>">
+<style>
+.team-card{background:#22262f;border:1px solid #343947;border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.team-name{font-weight:800;margin-bottom:8px;font-size:1.05rem}
+.member-pill{display:inline-block;background:#343947;color:#fff;font-weight:600;padding:6px 14px;border-radius:999px;margin:3px;font-size:.95rem}
+@keyframes teamIn{0%{transform:translateX(-40px) rotate(-2deg);opacity:0}60%{transform:translateX(6px) rotate(1deg);opacity:1}100%{transform:translateX(0) rotate(0)}}
+.team-in{animation:teamIn .45s cubic-bezier(.2,1.4,.4,1) backwards}
+@keyframes memberIn{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.member-in{animation:memberIn .35s cubic-bezier(.2,1.5,.4,1) backwards}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How do I split names into random teams?","acceptedAnswer":{"@type":"Answer","text":"Paste your names (one per line), choose the number of teams, and press Generate Teams. Names are shuffled and dealt evenly."}},
-{"@type":"Question","name":"Are the teams really random?","acceptedAnswer":{"@type":"Answer","text":"Yes — names are shuffled with cryptographic-quality randomness before being dealt into teams, so no one can claim favoritism."}}
+{"@type":"Question","name":"Are the teams really random?","acceptedAnswer":{"@type":"Answer","text":"Yes — names are shuffled with cryptographic-quality randomness before being dealt into teams, so no one can claim favoritism."}},
+{"@type":"Question","name":"What if the names don't divide evenly?","acceptedAnswer":{"@type":"Answer","text":"Teams are dealt round-robin, so sizes never differ by more than one person."}},
+{"@type":"Question","name":"Can teachers use this for classroom groups?","acceptedAnswer":{"@type":"Answer","text":"Yes — it's ideal for project groups, lab partners, debate teams, and breakout groups. Project it so students can see the draw is fair."}},
+{"@type":"Question","name":"Can I make more than 2 teams?","acceptedAnswer":{"@type":"Answer","text":"Yes — split into up to 6 teams at once. If you pick more teams than names, the count is capped automatically."}},
+{"@type":"Question","name":"How do I keep teams balanced by skill?","acceptedAnswer":{"@type":"Answer","text":"This tool randomizes, which is the fairest for casual play. For skill-balanced teams, seed players by rank first, then randomize within tiers."}},
+{"@type":"Question","name":"What's the fairest way to pick teams?","acceptedAnswer":{"@type":"Answer","text":"Random shuffling beats playground picks — no one is chosen last. Read our comparison of 7 team-splitting methods on the blog."}}
 ]}
 </script>
 </head>
@@ -57,7 +71,8 @@ James</textarea>
             <div class="field"><label for="tcount">Teams</label>
               <select id="tcount"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
             </div>
-            <button class="btn btn-brand" id="generate">Generate Teams</button>
+            <button class="btn btn-brand" id="generate">👥 Generate Teams</button>
+            <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
           </div>
         </div>
         <div style="flex:1;min-width:260px;text-align:left">
@@ -67,21 +82,34 @@ James</textarea>
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>Enter any list of names and split them into balanced, random teams. The list is shuffled with cryptographic randomness and dealt round-robin, so teams are as even as possible and nobody can complain about stacked picks.</p>
+      <h2>About this random team generator</h2>
+      <p>Enter any list of names and split them into balanced, random teams. The list is shuffled with cryptographic randomness and dealt round-robin, so teams are as even as possible and nobody can complain about stacked picks or being chosen last.</p>
+      <p>Random assignment beats "captains pick" every time for casual play: it's faster, it's provably fair, and it mixes friend groups instead of clustering them. Teachers love it for <strong>project groups, lab partners, and breakout rooms</strong>; coaches use it for <strong>pickup games and tournament brackets</strong>; offices use it for <strong>hackathon teams and Secret Santa pools</strong>. Project it on screen and the whole room can see the draw happen.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Paste your names, <strong>one per line</strong>.</li>
+        <li>Choose how many teams (2–6).</li>
+        <li>Press <strong>Generate Teams</strong> — watch them deal in one by one.</li>
+        <li>Press again anytime to reshuffle into brand-new teams.</li>
+      </ol>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Classrooms:</strong> project groups, lab partners, debate teams.</li>
+        <li><strong>Classrooms:</strong> project groups, lab partners, debate teams, reading circles.</li>
         <li><strong>Sports:</strong> pickup games, fantasy drafts, tournament brackets.</li>
-        <li><strong>Work:</strong> breakout groups, secret santa pools, hackathon teams.</li>
+        <li><strong>Work:</strong> breakout groups, Secret Santa pools, hackathon teams.</li>
         <li><strong>Parties:</strong> trivia teams, relay teams, game-night squads.</li>
       </ul>
+      <p>Not sure random is right for your situation? Read our honest comparison of <a href="/blog/split-teams-fairly">7 ways to split teams fairly</a>.</p>
     </div>
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
       <details><summary>How do I split names into random teams?</summary><p>Paste your names (one per line), choose the number of teams, and press Generate Teams.</p></details>
       <details><summary>Are the teams really random?</summary><p>Yes — names are shuffled with cryptographic-quality randomness before being dealt evenly into teams.</p></details>
-      <details><summary>What if names don't divide evenly?</summary><p>Teams are dealt round-robin, so the difference is never more than one person per team.</p></details>
+      <details><summary>What if the names don't divide evenly?</summary><p>Teams are dealt round-robin, so sizes never differ by more than one person.</p></details>
+      <details><summary>Can teachers use this for classroom groups?</summary><p>Yes — it's ideal for project groups, lab partners, debate teams, and breakout groups. Project it so students can see the draw is fair.</p></details>
+      <details><summary>Can I make more than 2 teams?</summary><p>Yes — split into up to 6 teams at once. If you pick more teams than names, the count is capped automatically.</p></details>
+      <details><summary>How do I keep teams balanced by skill?</summary><p>This tool randomizes, which is the fairest for casual play. For skill-balanced teams, seed players by rank first, then randomize within tiers.</p></details>
+      <details><summary>What's the fairest way to pick teams?</summary><p>Random shuffling beats playground picks — no one is chosen last. Read our comparison of 7 team-splitting methods on the blog.</p></details>
     </div>
     <div class="prose">
       <h2>More group tools</h2>
@@ -116,24 +144,49 @@ James</textarea>
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
+  "use strict";
   var TEAM_COLORS = ["#6c4cf1","#00b894","#ff9f43","#4dc3ff","#ff6b81","#a3e635"];
+  var busy = false;
   function generate(){
+    if(busy) return;
     var names = document.getElementById("names").value.split("\n")
       .map(function(s){ return s.trim(); }).filter(Boolean);
     var t = parseInt(document.getElementById("tcount").value, 10);
     var box = document.getElementById("result");
     if(names.length < 2){ box.innerHTML = "Enter at least 2 names."; return; }
     if(t > names.length) t = names.length;
+    busy = true;
     var shuffled = grlShuffle(names), teams = [];
     for(var i = 0; i < t; i++) teams.push([]);
     shuffled.forEach(function(n, i){ teams[i % t].push(n); });
-    box.innerHTML = teams.map(function(members, i){
-      var c = TEAM_COLORS[i % TEAM_COLORS.length];
-      return '<div style="background:#22262f;border:1px solid #343947;border-radius:12px;padding:14px 16px;margin-bottom:10px">' +
-        '<div style="font-weight:800;color:' + c + ';margin-bottom:6px">Team ' + (i + 1) + " (" + members.length + ")</div>" +
-        members.map(function(m){ return '<span class="pill" style="margin:3px">' + m.replace(/</g,"&lt;") + "</span>"; }).join("") + "</div>";
-    }).join("");
-    grlConfetti(70);
+    box.innerHTML = "";
+    grlSfx.whoosh();
+    // deal teams in one by one, members pop in staggered
+    teams.forEach(function(members, i){
+      setTimeout(function(){
+        var c = TEAM_COLORS[i % TEAM_COLORS.length];
+        var card = document.createElement("div");
+        card.className = "team-card team-in";
+        card.innerHTML = '<div class="team-name" style="color:' + c + '">Team ' + (i + 1) +
+          " (" + members.length + ")</div><div class='members'></div>";
+        box.appendChild(card);
+        grlSfx.pop();
+        var wrap = card.querySelector(".members");
+        members.forEach(function(m, j){
+          setTimeout(function(){
+            var p = document.createElement("span");
+            p.className = "member-pill member-in";
+            p.textContent = m;
+            wrap.appendChild(p);
+            grlSfx.tick();
+          }, 200 + j * 130);
+        });
+        if(i === teams.length - 1){
+          setTimeout(function(){ grlSfx.chime(); grlConfetti(70); busy = false; },
+            200 + members.length * 130);
+        }
+      }, i * 420);
+    });
   }
   document.getElementById("generate").addEventListener("click", generate);
   generate();

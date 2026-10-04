@@ -19,7 +19,11 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How do I use the picker wheel?","acceptedAnswer":{"@type":"Answer","text":"Type or paste your entries (one per line) into the list box, then press SPIN. The wheel animates and lands on a random winner."}},
 {"@type":"Question","name":"Is the picker wheel really random?","acceptedAnswer":{"@type":"Answer","text":"Yes. The final stopping position is chosen with cryptographic-quality randomness, so every entry has an equal chance."}},
-{"@type":"Question","name":"Can I use it for giveaways and raffles?","acceptedAnswer":{"@type":"Answer","text":"Absolutely — it's ideal for giveaways, classroom picks, raffles and team draws. For transparency, spin it live on screen."}}
+{"@type":"Question","name":"Can I use it for giveaways and raffles?","acceptedAnswer":{"@type":"Answer","text":"Absolutely — it's ideal for giveaways, classroom picks, raffles and team draws. For transparency, spin it live on screen."}},
+{"@type":"Question","name":"How many entries can the wheel hold?","acceptedAnswer":{"@type":"Answer","text":"Up to 50 entries render smoothly on the wheel. For longer lists, use our random list picker instead."}},
+{"@type":"Question","name":"Can I spin the wheel to pick a giveaway winner live?","acceptedAnswer":{"@type":"Answer","text":"Yes — share your screen on YouTube, Twitch, or Instagram Live and spin in front of your audience. Paste the full entry list first so viewers can verify everyone is included."}},
+{"@type":"Question","name":"Does the wheel remove the winner after a spin?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. To draw multiple winners, delete the winning line from the entry box and spin again — the wheel updates instantly."}},
+{"@type":"Question","name":"What are some fun picker wheel ideas?","acceptedAnswer":{"@type":"Answer","text":"Prize wheels, truth-or-dare, dinner deciders, classroom student pickers, workout randomizers, and stream giveaways. Our blog lists 40 spin-the-wheel ideas."}}
 ]}
 </script>
 </head>
@@ -62,7 +66,10 @@ Fiona</textarea>
             <button class="pill" data-preset="colors">Colors</button>
           </div>
           <button class="btn btn-brand" id="updateBtn">Update Wheel</button>
-          <button class="btn btn-ghost" id="spinBtn" style="font-size:1.2rem">SPIN 🎯</button>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-ghost" id="spinBtn" style="font-size:1.2rem;flex:1">SPIN 🎯</button>
+            <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
+          </div>
         </div>
       </div>
       <div class="result small" id="result" aria-live="polite" style="margin-top:18px;min-height:2em">Press SPIN to pick a winner…</div>
@@ -72,21 +79,25 @@ Fiona</textarea>
 
     <div class="prose">
       <h2>About the picker wheel</h2>
-      <p>Our picker wheel is a virtual spinning wheel that selects a random entry from your list. Add names, choices, prizes or anything else — the wheel divides into colorful segments and spins with a realistic slowdown before landing on the winner with a confetti celebration.</p>
+      <p>Our picker wheel is a virtual spinning wheel — also called a <strong>wheel of names</strong> or <strong>spin the wheel</strong> picker — that selects a random entry from your list. Add names, choices, prizes or anything else — the wheel divides into colorful segments and spins with a realistic slowdown, clicking like a carnival wheel before landing on the winner with a fanfare and confetti celebration.</p>
+      <p>Because the draw happens <strong>visibly on screen</strong>, the wheel is the most trusted way to pick winners for giveaways on YouTube, Twitch, TikTok, and Instagram Live. Paste your full entry list so the audience can verify everyone is included, then spin live — no one can claim the result was rigged.</p>
       <h2>How to use it</h2>
       <ol>
-        <li>Type or paste entries into the list box, one per line.</li>
+        <li>Type or paste entries into the list box, one per line (up to 50).</li>
         <li>Click <strong>Update Wheel</strong> (or it updates as you type).</li>
         <li>Press <strong>SPIN</strong> and watch it land on your winner.</li>
         <li>Remove the winner and spin again for multi-round draws.</li>
       </ol>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Giveaways &amp; raffles:</strong> draw fair winners live on stream.</li>
-        <li><strong>Classrooms:</strong> pick students for questions or teams.</li>
+        <li><strong>Giveaways &amp; raffles:</strong> draw fair winners live on stream — the transparent choice for content creators.</li>
+        <li><strong>Prize wheels:</strong> spin for discounts, prizes, and rewards at events.</li>
+        <li><strong>Classrooms:</strong> pick students for questions, reading order, or classroom jobs.</li>
         <li><strong>Decisions:</strong> "what should we eat?" — let the wheel decide.</li>
-        <li><strong>Games:</strong> Truth-or-dare prompts, prize wheels, random challenges.</li>
+        <li><strong>Party games:</strong> truth-or-dare prompts, challenge wheels, random dares.</li>
+        <li><strong>Teams:</strong> spin to draft players or assign groups.</li>
       </ul>
+      <p>Want inspiration? Read our <a href="/blog/spin-the-wheel-ideas">40 spin-the-wheel ideas</a> for classrooms, parties, and streams, or our guide on <a href="/blog/pick-random-giveaway-winner">how to pick a random giveaway winner fairly</a>.</p>
     </div>
 
     <div class="prose faq">
@@ -94,7 +105,10 @@ Fiona</textarea>
       <details><summary>How do I use the picker wheel?</summary><p>Type or paste your entries (one per line) into the list box, then press SPIN. The wheel animates and lands on a random winner.</p></details>
       <details><summary>Is the picker wheel really random?</summary><p>Yes. The final stopping position is chosen with cryptographic-quality randomness, so every entry has an exactly equal chance of winning.</p></details>
       <details><summary>Can I use it for giveaways and raffles?</summary><p>Absolutely — it's ideal for giveaways, classroom picks and raffles. For transparency, share your screen and spin it live.</p></details>
-      <details><summary>How many entries can I add?</summary><p>Up to 50 entries work smoothly. For longer lists, try our <a href="/tools/random-list-picker">random list picker</a> instead.</p></details>
+      <details><summary>How many entries can the wheel hold?</summary><p>Up to 50 entries render smoothly on the wheel. For longer lists, use our <a href="/tools/random-list-picker">random list picker</a> instead.</p></details>
+      <details><summary>Can I spin the wheel to pick a giveaway winner live?</summary><p>Yes — share your screen on YouTube, Twitch, or Instagram Live and spin in front of your audience. Paste the full entry list first so viewers can verify everyone is included.</p></details>
+      <details><summary>Does the wheel remove the winner after a spin?</summary><p>Not automatically. To draw multiple winners, delete the winning line from the entry box and spin again — the wheel updates instantly.</p></details>
+      <details><summary>What are some fun picker wheel ideas?</summary><p>Prize wheels, truth-or-dare, dinner deciders, classroom student pickers, workout randomizers, and stream giveaways. Our blog lists 40 spin-the-wheel ideas.</p></details>
     </div>
 
     <div class="prose">
@@ -189,7 +203,8 @@ Fiona</textarea>
   function spin(){
     if(spinning || entries.length < 2) return;
     spinning = true;
-    resultEl.textContent = "Spinning…";
+    resultEl.innerHTML = "Spinning…";
+    grlSfx.whoosh();
     var seg = Math.PI * 2 / entries.length,
         // random final offset so pointer (top) lands inside a random segment
         target = Math.floor(cryptoRand() * entries.length),
@@ -199,7 +214,8 @@ Fiona</textarea>
         want = ((-Math.PI / 2 - (target * seg + seg / 2)) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2),
         delta = (want - current + Math.PI * 2) % (Math.PI * 2),
         total = Math.PI * 2 * (5 + Math.floor(cryptoRand() * 4)) + delta,
-        start = rotation, dur = 4200, t0 = performance.now();
+        start = rotation, dur = 4200, t0 = performance.now(),
+        lastSegIdx = -1;
     function cryptoRand(){
       var a = new Uint32Array(1);
       (window.crypto || window.msCrypto).getRandomValues(a);
@@ -210,10 +226,15 @@ Fiona</textarea>
           e = 1 - Math.pow(1 - p, 4); // easeOutQuart
       rotation = start + total * e;
       draw();
+      // click like a carnival wheel as segments pass the pointer
+      var segIdx = Math.floor((((rotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2)) / seg);
+      if(segIdx !== lastSegIdx){ lastSegIdx = segIdx; grlSfx.tick(); }
       if(p < 1){ requestAnimationFrame(frame); }
       else {
         spinning = false;
-        resultEl.innerHTML = "🎉 Winner: <strong>" + escapeHtml(entries[target]) + "</strong>";
+        resultEl.innerHTML = '<span class="flash-title flash-pop" style="font-size:clamp(1.8rem,5vw,2.6rem)">🎉 ' +
+          escapeHtml(entries[target]) + " wins!</span>";
+        grlSfx.fanfare();
         grlConfetti(140);
       }
     }

@@ -15,10 +15,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<style>
+.winner-card{background:linear-gradient(135deg,#1e2230,#262b3d);border:1px solid #3a4060;border-radius:14px;padding:16px 20px;font-size:1.35rem;font-weight:800;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.winner-card.first{background:linear-gradient(135deg,#6c4cf1,#9d4edd);border-color:#b892ff;box-shadow:0 10px 28px rgba(108,76,241,.5)}
+@keyframes winnerIn{0%{transform:scale(.6) rotate(-3deg);opacity:0}60%{transform:scale(1.06) rotate(1deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+.winner-in{animation:winnerIn .5s cubic-bezier(.2,1.5,.4,1) backwards}
+.slot-name{font-size:2rem;font-weight:800;color:#ffd93d;text-shadow:0 2px 12px rgba(255,217,61,.4)}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How do I pick a random winner from a list?","acceptedAnswer":{"@type":"Answer","text":"Paste your entries one per line, choose how many winners to draw, and press Pick Winners. Winners are removed so you can draw again for runner-ups."}},
-{"@type":"Question","name":"Is the draw fair?","acceptedAnswer":{"@type":"Answer","text":"Yes — winners are selected with cryptographic-quality randomness, giving every entry an equal chance."}}
+{"@type":"Question","name":"Is the draw fair?","acceptedAnswer":{"@type":"Answer","text":"Yes — winners are selected with cryptographic-quality randomness, giving every entry an equal chance."}},
+{"@type":"Question","name":"Can I pick multiple winners without repeats?","acceptedAnswer":{"@type":"Answer","text":"Yes. Winners are automatically removed from the pool, so press Pick Winners again to draw 2nd, 3rd place and beyond — no entry can win twice."}},
+{"@type":"Question","name":"Can I use this for Instagram or YouTube giveaways?","acceptedAnswer":{"@type":"Answer","text":"Yes. Export your commenter or follower list, paste it in, and draw on screen. Recording the draw makes it transparent and trustworthy."}},
+{"@type":"Question","name":"How do I remove duplicates from my list first?","acceptedAnswer":{"@type":"Answer","text":"De-duplicate before pasting — most spreadsheet apps have a 'remove duplicates' option. A clean list keeps the draw fair for one-entry-per-person rules."}},
+{"@type":"Question","name":"What's the difference between this and the picker wheel?","acceptedAnswer":{"@type":"Answer","text":"The wheel is visual and theatrical — great for live spins with up to 50 entries. The list picker handles longer lists and draws multiple winners at once, ideal for big comment lists."}},
+{"@type":"Question","name":"Can I shuffle a list into random order?","acceptedAnswer":{"@type":"Answer","text":"Yes — hit Shuffle List to randomize the entire order, useful for Secret Santa pairings, presentation order, and prioritizing to-do lists."}}
 ]}
 </script>
 </head>
@@ -55,7 +67,8 @@
             <div class="field"><label for="wcount">Winners</label>
               <select id="wcount"><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option></select>
             </div>
-            <button class="btn btn-brand" id="pickBtn">Pick Winners</button>
+            <button class="btn btn-brand" id="pickBtn">🎯 Pick Winners</button>
+            <button class="sound-toggle" data-sound-toggle title="Toggle sound" aria-label="Toggle sounds">🔊</button>
           </div>
           <button class="btn btn-ghost" id="shuffleBtn" style="width:100%;justify-content:center;margin-top:10px">🔀 Shuffle List</button>
         </div>
@@ -66,21 +79,36 @@
     </div>
     <div class="ad-slot">Advertisement — display ad slot (AdSense / Mediavine)</div>
     <div class="prose">
-      <h2>About this tool</h2>
-      <p>Drop in any list and draw any number of random winners. Winners are removed from the pool automatically, so you can keep drawing for 2nd and 3rd place without repeats. Need the whole list in random order instead? Hit shuffle.</p>
+      <h2>About this random list picker</h2>
+      <p>Drop in any list and draw any number of random winners. Winners are removed from the pool automatically, so you can keep drawing for 2nd and 3rd place without repeats. Need the whole list in random order instead? Hit shuffle — perfect for Secret Santa pairings, presentation order, or randomizing a to-do list.</p>
+      <p>Unlike a <a href="/tools/picker-wheel">spinning wheel</a>, which shines with up to 50 entries and live audiences, the list picker handles <strong>lists of any length</strong> and draws multiple winners in one go — the right tool for big comment lists from Instagram, YouTube, or TikTok giveaways. For single-number draws from ticket ranges, use the <a href="/tools/random-number-generator">random number generator</a> instead.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Paste your entries into the box, <strong>one per line</strong>.</li>
+        <li>Choose how many winners to draw.</li>
+        <li>Press <strong>Pick Winners</strong> — winners reveal one by one with a drumroll.</li>
+        <li>Press again to draw the next round; winners can't repeat.</li>
+      </ol>
       <h2>Popular uses</h2>
       <ul>
-        <li><strong>Giveaways:</strong> draw winners from comment or entrant lists.</li>
-        <li><strong>Raffles:</strong> fair, verifiable draws you can screen-share.</li>
+        <li><strong>Giveaways:</strong> draw winners from comment, follower, or entrant lists.</li>
+        <li><strong>Raffles &amp; sweepstakes:</strong> fair, verifiable draws you can screen-share.</li>
+        <li><strong>Contests:</strong> pick finalists, then draw the grand prize.</li>
         <li><strong>Secret Santa:</strong> shuffle the list and pair neighbors.</li>
+        <li><strong>Classrooms:</strong> random presentation order or prize draws.</li>
         <li><strong>Prioritizing:</strong> shuffle a to-do list and tackle it top-down.</li>
       </ul>
+      <p>Running a giveaway? Read our guide on <a href="/blog/pick-random-giveaway-winner">how to pick a random giveaway winner fairly</a>.</p>
     </div>
     <div class="prose faq">
       <h2>Frequently asked questions</h2>
       <details><summary>How do I pick a random winner from a list?</summary><p>Paste your entries one per line, choose how many winners to draw, and press Pick Winners.</p></details>
       <details><summary>Is the draw fair?</summary><p>Yes — winners are selected with cryptographic-quality randomness; every entry has an equal chance.</p></details>
-      <details><summary>Can I draw multiple winners without repeats?</summary><p>Yes. Winners are automatically removed from the pool, so just press Pick Winners again for the next round.</p></details>
+      <details><summary>Can I pick multiple winners without repeats?</summary><p>Yes. Winners are automatically removed from the pool, so press Pick Winners again to draw 2nd, 3rd place and beyond — no entry can win twice.</p></details>
+      <details><summary>Can I use this for Instagram or YouTube giveaways?</summary><p>Yes. Export your commenter or follower list, paste it in, and draw on screen. Recording the draw makes it transparent and trustworthy.</p></details>
+      <details><summary>How do I remove duplicates from my list first?</summary><p>De-duplicate before pasting — most spreadsheet apps have a "remove duplicates" option. A clean list keeps the draw fair for one-entry-per-person rules.</p></details>
+      <details><summary>What's the difference between this and the picker wheel?</summary><p>The wheel is visual and theatrical — great for live spins with up to 50 entries. The list picker handles longer lists and draws multiple winners at once, ideal for big comment lists.</p></details>
+      <details><summary>Can I shuffle a list into random order?</summary><p>Yes — hit Shuffle List to randomize the entire order, useful for Secret Santa pairings, presentation order, and prioritizing to-do lists.</p></details>
     </div>
     <div class="prose">
       <h2>More winner-picking tools</h2>
@@ -115,29 +143,50 @@
 <script src="/assets/js/main.js"></script>
 <script>
 (function(){
-  var pool = [];
+  "use strict";
+  var busy = false;
   function readList(){
     return document.getElementById("items").value.split("\n")
       .map(function(s){ return s.trim(); }).filter(Boolean);
   }
   function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
   function pick(){
-    var list = readList();
-    if(!list.length){ document.getElementById("result").innerHTML = "Add some entries first."; return; }
+    if(busy) return;
+    var list = readList(), res = document.getElementById("result");
+    if(!list.length){ res.innerHTML = "Add some entries first."; return; }
+    busy = true;
     var n = Math.min(parseInt(document.getElementById("wcount").value, 10), list.length);
-    var shuffled = grlShuffle(list), winners = shuffled.slice(0, n);
-    document.getElementById("result").innerHTML = winners.map(function(w, i){
-      var medal = ["🥇","🥈","🥉"][i] || "🏅";
-      return '<div style="background:#22262f;border:1px solid #343947;border-radius:12px;padding:14px 18px;font-size:1.25rem;font-weight:700">' +
-        medal + " " + esc(w) + "</div>";
-    }).join("");
-    grlConfetti(110);
+    var winners = grlShuffle(list).slice(0, n);
+    grlSfx.whoosh();
+    // slot-machine scramble: cycle random names, slowing down
+    var cycles = 0, maxCycles = 14, iv = setInterval(function(){
+      res.innerHTML = '<div class="slot-name">' + esc(grlPick(list)) + "</div>";
+      grlSfx.tick();
+      if(++cycles >= maxCycles){
+        clearInterval(iv);
+        reveal(winners, 0, res);
+      }
+    }, 90);
+  }
+  function reveal(winners, i, res){
+    if(i === 0) res.innerHTML = "";
+    var medal = ["🥇","🥈","🥉"][i] || "🏅";
+    var div = document.createElement("div");
+    div.className = "winner-card winner-in" + (i === 0 ? " first" : "");
+    div.innerHTML = medal + " " + esc(winners[i]);
+    res.appendChild(div);
+    grlSfx.pop();
+    if(i === 0){ grlSfx.fanfare(); grlConfetti(110); }
+    if(i + 1 < winners.length){
+      setTimeout(function(){ reveal(winners, i + 1, res); }, 450);
+    } else { busy = false; }
   }
   function shuffle(){
     var list = readList();
     if(!list.length) return;
     var s = grlShuffle(list);
     document.getElementById("items").value = s.join("\n");
+    grlSfx.chime();
     document.getElementById("result").innerHTML =
       '<div style="color:#a7abc0">List shuffled! New order:<br><br>' +
       s.slice(0, 8).map(function(x, i){ return "<code>" + (i+1) + ". " + esc(x) + "</code>"; }).join(" ") +
