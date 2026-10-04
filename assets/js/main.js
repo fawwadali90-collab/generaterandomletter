@@ -87,5 +87,70 @@
     document.querySelectorAll("[data-year]").forEach(function(el){
       el.textContent = new Date().getFullYear();
     });
+    // auto-wire sound toggle buttons
+    document.querySelectorAll("[data-sound-toggle]").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var on = window.grlSfx.toggle();
+        btn.textContent = on ? "🔊" : "🔇";
+      });
+    });
   });
+
+  /* Shared sound engine (Web Audio, zero audio files) */
+  window.grlSfx = (function(){
+    var AC = null, on = true, ready = false;
+    document.addEventListener("pointerdown", function(){ ready = true; ensure(); }, {once:true});
+    function ensure(){
+      if(!AC){ try{ AC = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ return null; } }
+      if(AC && AC.state === "suspended") AC.resume();
+      return AC;
+    }
+    function tone(delay, freq, dur, type, vol, slideTo){
+      var ctx = ensure(); if(!ctx || !on || !ready) return;
+      var t = ctx.currentTime + delay,
+          o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type || "sine"; o.frequency.setValueAtTime(freq, t);
+      if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t+dur);
+      g.gain.setValueAtTime(vol || .18, t); g.gain.exponentialRampToValueAtTime(.001, t+dur);
+      o.connect(g); g.connect(ctx.destination); o.start(t); o.stop(t+dur+.03);
+    }
+    function noise(delay, dur, fType, freq, vol, q){
+      var ctx = ensure(); if(!ctx || !on || !ready) return;
+      var t = ctx.currentTime + delay,
+          len = Math.floor(ctx.sampleRate * dur),
+          buf = ctx.createBuffer(1, len, ctx.sampleRate),
+          d = buf.getChannelData(0);
+      for(var i=0;i<len;i++) d[i] = (Math.random()*2-1) * Math.pow(1-i/len, 2);
+      var src = ctx.createBufferSource(); src.buffer = buf;
+      var f = ctx.createBiquadFilter(); f.type = fType || "bandpass"; f.frequency.value = freq || 2000; f.Q.value = q || 1;
+      var g = ctx.createGain(); g.gain.setValueAtTime(vol || .2, t); g.gain.exponentialRampToValueAtTime(.001, t+dur);
+      src.connect(f); f.connect(g); g.connect(ctx.destination); src.start(t);
+    }
+    function sweep(dur, f0, f1, vol){
+      var ctx = ensure(); if(!ctx || !on || !ready) return;
+      var t = ctx.currentTime,
+          len = Math.floor(ctx.sampleRate * dur),
+          buf = ctx.createBuffer(1, len, ctx.sampleRate),
+          d = buf.getChannelData(0);
+      for(var i=0;i<len;i++) d[i] = (Math.random()*2-1) * (1-i/len);
+      var src = ctx.createBufferSource(); src.buffer = buf;
+      var f = ctx.createBiquadFilter(); f.type = "bandpass"; f.Q.value = 1.4;
+      f.frequency.setValueAtTime(f0, t); f.frequency.exponentialRampToValueAtTime(f1, t+dur);
+      var g = ctx.createGain(); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.001, t+dur);
+      src.connect(f); f.connect(g); g.connect(ctx.destination); src.start(t);
+    }
+    return {
+      isOn: function(){ return on; },
+      toggle: function(){ on = !on; return on; },
+      pop: function(){ tone(0, 540, .1, "triangle", .2, 920); },
+      tick: function(){ tone(0, 2300, .03, "square", .045); },
+      whoosh: function(){ sweep(.32, 500, 3400, .13); },
+      chime: function(){ tone(0, 880, .2, "sine", .16); tone(.13, 1318, .3, "sine", .14); },
+      fanfare: function(){ var n=[523,659,784,1047], i; for(i=0;i<n.length;i++) tone(i*.1, n[i], .22, "triangle", .2); },
+      thunk: function(){ tone(0, 130, .15, "sine", .4, 48); noise(0, .07, "lowpass", 500, .3); },
+      ching: function(){ tone(0, 3520, .45, "sine", .16, 3300); tone(0, 4699, .38, "sine", .1); },
+      womp: function(){ tone(0, 300, .5, "sawtooth", .09, 92); },
+      diceRattle: function(){ for(var i=0;i<7;i++) noise(i*.11, .06, "highpass", 1400+Math.random()*2200, .2); }
+    };
+  })();
 })();

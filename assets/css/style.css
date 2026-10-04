@@ -142,3 +142,15 @@ footer a:hover{color:#fff}
 .coin{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe9a8,#f5b942 60%,#d99a26);display:flex;align-items:center;justify-content:center;font-size:3.2rem;font-weight:800;color:#7a4d00;box-shadow:0 12px 30px rgba(0,0,0,.35);margin:6px auto;transition:transform .6s}
 .color-swatch{width:120px;height:120px;border-radius:16px;margin:4px auto;box-shadow:0 8px 22px rgba(0,0,0,.3);border:3px solid rgba(255,255,255,.25)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* Flashy tool-stage shared utilities */
+.sound-toggle{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:12px;padding:13px 16px;font-size:1.2rem;cursor:pointer}
+.sound-toggle:hover{background:rgba(255,255,255,.22)}
+@keyframes flashPop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}
+.flash-pop{animation:flashPop .45s cubic-bezier(.2,1.6,.4,1)}
+.flash-title{font-size:clamp(2.6rem,8vw,4.6rem);font-weight:800;line-height:1.1;background:linear-gradient(135deg,#ffd93d,#ff9f43 45%,#ff6b81);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(255,159,67,.35))}
+.flash-tile{display:inline-flex;align-items:center;justify-content:center;border-radius:22px;font-weight:800;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.22);box-shadow:0 14px 30px rgba(0,0,0,.45),inset 0 3px 8px rgba(255,255,255,.35),inset 0 -6px 12px rgba(0,0,0,.25)}
+@keyframes tileIn{0%{transform:translateY(-46px) rotate(-10deg) scale(.6);opacity:0}60%{transform:translateY(6px) rotate(3deg) scale(1.06);opacity:1}100%{transform:translateY(0) rotate(0) scale(1)}}
+.tile-in{animation:tileIn .5s cubic-bezier(.2,1.5,.4,1) backwards}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(255,217,61,.5))}50%{filter:drop-shadow(0 0 22px rgba(255,217,61,.95))}}
+.glow-pulse{animation:glowPulse 1.6s ease-in-out infinite}
