@@ -178,3 +178,9 @@ footer a:hover{color:#fff}
 .rel-mini span:last-child{font-size:.86rem;font-weight:700;line-height:1.4}
 .rel-mini:hover span:last-child{color:var(--brand)}
 @media(max-width:960px){.post-layout{grid-template-columns:1fr}.post-sidebar{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+
+.post-hero{margin:22px 0 8px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.post-hero img{display:block;width:100%;height:auto}
+
+.blog-card .card-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.blog-card .card-thumb{width:64px;height:64px;border-radius:16px;object-fit:cover;flex:none;box-shadow:var(--shadow-sm)}
